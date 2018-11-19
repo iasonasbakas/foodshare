@@ -1,0 +1,23 @@
+{% extends "fs/base.html" %}
+
+{% block content %}
+{% if post_id %}
+<form action="{% url 'fs:post' user_id post_id %}"  method="post">
+{% else %}
+<form action="{% url 'fs:posts' user_id %}"  method="post">
+{% endif %}
+  {% csrf_token %}
+    <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title"
+           class="form-control" placeholder="Title" value="{{ title }}"/>
+  </div>
+  <div class="form-group">
+    <label for="text">Content</label>
+    <textarea id="text" name="text"
+              class="form-control" placeholder="content" rows="10">{{ text }}
+    </textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>  
+{% endblock %}
