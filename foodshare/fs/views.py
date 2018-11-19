@@ -1,13 +1,19 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from django.http import HttpResponse
+from django.template import loader
+
+from .models import Post, User, Rating, Donation, Product
 
 def index(request):
 	latest_posts = Post.objects.order_by('-date', 'description')[:]
-	return render(request, 'fs/index.html', {'latest_posts': latest_posts})
+	template = loader.get_template('fs/index.html')
+	context = {'latest_posts':latest_posts}
+	return render(request, 'fs/index.html', context)
 
 def post(request, post_id):
 	post = get_object_or_404(Post, pk=post_id)
-	return render(request, 'fs/posts.html', {'post': post})
+	return render(request, 'fs/post.html', {'post': post})
 
-def profile(request, user_id):
-	return render(request, 'fs/profile.html', {'profile': user_id})
+def user(request, user_id):
+	user = get_object_or_404(User, pk=user_id)
+	return render(request, 'fs/user.html', {'user': user})

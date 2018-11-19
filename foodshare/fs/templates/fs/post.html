@@ -1,0 +1,15 @@
+{% extends "fs/base.html" %}
+
+{% block content %}
+<ul class="list-group">
+  <li class="list-group-item">
+    Product: {{ post.product.name }}
+  </li>
+  <li class="list-group-item">
+    User: {{ post.user.name }}
+  </li>
+  <li class="list-group-item">
+    Location: {{ post.location }}
+  </li>
+</ul>
+{% endblock %}

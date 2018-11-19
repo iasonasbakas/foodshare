@@ -6,3 +6,5 @@ urlpatterns = [
     path('', lambda r: HttpResponseRedirect('fs/')),
     path('fs/', include('fs.urls')),
     path('admin/', admin.site.urls),
+
+]
