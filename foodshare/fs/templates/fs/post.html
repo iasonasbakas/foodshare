@@ -3,19 +3,26 @@
 {% block content %}
 <ul class="list-group">
   <li class="list-group-item">
-    Product: {{ post.product }}
+    Product:
+      <a>{{ post.product.name }}</a>
   </li>
   <li class="list-group-item">
-    Uploader: {{ post.user}}
-    <ul>
-      {% for user in post.user_set.all %}
-        <li>
-          <a href="{% url 'fs:user' user.id %}">{{ user.name }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+    Uploader:
+        <a href="{% url 'fs:user' user.id %}">{{ post.user.username }}</a>
   <li class="list-group-item">
-    Year published: {{ post.upload_date }}
+    Description: {{ post.description }}
+  </li>
+    <li class="list-group-item">
+    Location: {{ post.location }}
+  </li>
+  <li class="list-group-item">
+    Date posted: {{ post.upload_date }}
+  </li>
+    <li class="list-group-item">
+    Time posted: {{ post.time }}
+  </li>
+  <li class="list-group-item">
+    Expiration Date: {{ post.expiration_date }}
   </li>
 </ul>
 {% endblock %}
