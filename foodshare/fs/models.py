@@ -26,9 +26,9 @@ class Post(models.Model):
 	product = models.ForeignKey(Product, on_delete=models.CASCADE)
 	description = models.CharField(max_length=100)
 	location = models.CharField(max_length=100)
-	upload_date = models.DateField(auto_now_add=True)
+	upload_date = models.DateField('upload_date')
 	time = models.TimeField(auto_now_add=True)
-	expiration_date = models.DateField()
+	expiration_date = models.DateField('expiration_date')
 	product_photo = models.ImageField(null=True)
 
 	def __str__(self):
@@ -45,8 +45,8 @@ class Donation(models.Model):
 	duration = models.IntegerField()
 	message = models.CharField(max_length=100)
 
-	def __str__(self):
-        	return "%s %s %s %s %s %s %s %s" % (self.user, self.name, self.amount, self.date, self.time, self.donation_type, self.duration, self.message)
+	"""def __str__(self):
+        	return "%s %s %s %s %s %s %s %s" % (self.user, self.name, self.amount, self.date, self.time, self.donation_type, self.duration, self.message)"""
 
 
 class Rating(models.Model):
@@ -54,8 +54,8 @@ class Rating(models.Model):
 	rating = models.IntegerField()
 	description = models.CharField(max_length=100)
 
-	def __str__(self):
-        	return "%s %s %s" % (self.post, self.rating, self.description)
+	"""def __str__(self):
+        	return "%s %s %s" % (self.post, self.rating, self.description)"""
 
 
 	

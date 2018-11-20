@@ -3,7 +3,7 @@
 {% block content %}
 {% if latest_posts %}
   <ul class="list-group">
-    {% for post in latest_posts %}
+  	{% for post in latest_posts %}
       <li class="list-group-item">
         <a href= "{% url 'fs:post' post.id %}">{{ post.description }}</a>
       </li>
