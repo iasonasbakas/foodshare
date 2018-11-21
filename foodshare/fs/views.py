@@ -8,7 +8,9 @@ from .models import Post, User, Rating, Donation, Product
 
 def index(request):
     latest_posts = Post.objects.order_by('-upload_date')[:]
-    context = {'latest_posts': latest_posts}
+    allproducts = Product.objects.order_by('-name')[:]
+    allusers = User.objects.order_by('-name')[:]
+    context = {'latest_posts': latest_posts, 'allproducts': allproducts, 'allusers': allusers}
     return render(request, 'fs/index.html', context)
 
 def post(request, post_id):

@@ -12,4 +12,18 @@
 {% else %}
   <p>No posts are available.</p>
 {% endif %}
+<ul class="list-group">
+  	{% for product in allproducts %}
+      <li class="list-group-item">
+        <a href= "{% url 'fs:product' product.id %}">{{ product.name }}</a>
+      </li>
+    {% endfor %}
+</ul>
+<ul class="list-group">
+  	{% for user in allusers %}
+      <li class="list-group-item">
+        <a href= "{% url 'fs:user' user.id %}">{{ user.name }}</a>
+      </li>
+    {% endfor %}
+ </ul>
 {% endblock %}

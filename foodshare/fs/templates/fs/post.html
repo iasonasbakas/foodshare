@@ -1,7 +1,7 @@
 {% extends "fs/base.html" %}
 
 {% block content %}
-<ul class="list-group">
+<!--<ul class="list-group">
   <li class="list-group-item">
     Product:
       <a>{{ post.product.name }}</a>
@@ -24,5 +24,27 @@
   <li class="list-group-item">
     Expiration Date: {{ post.expiration_date }}
   </li>
-</ul>
+</ul>-->
+
+<div class="card mb-3">
+  <div class="media">
+    <div class="media-left media-top">
+      &nbsp;<img src="https://a.deviantart.net/avatars/f/k/fkyhdino.png?5" class="media-object thumbnail" alt="member1">
+    </div>
+    <div class="media-body">
+      <h3 class="media-heading"><small>&nbsp;{{ post.user.username }}</small>&nbsp;<font color="green"><small>{{ post.location }}</small></font></h3>
+      <p>&nbsp;&nbsp;{{ post.product.name }}</p>
+      <p>&nbsp;&nbsp;{{ post.description }}</p>
+      <p>&nbsp;&nbsp;{{ post.expiration_date }}
+    </div>
+  </div>
+  <hr class="my-0">
+    <div class="card-body py-2 small">
+      <a class="mr-3 d-inline-block" href="#interestedModal"  data-toggle="modal" data-target="#interestedModal">
+        <i class="fa fa-fw fa-thumbs-up"></i>Interested</a>
+          <a class="mr-3 d-inline-block" href="#">
+            <i class="fa fa-fw fa-comment"></i>Message</a>
+    </div>
+  <div class="card-footer small text-muted">{{ post.upload_date }} {{ post.time }}</div>
+</div>
 {% endblock %}
