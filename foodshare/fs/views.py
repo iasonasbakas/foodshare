@@ -24,3 +24,22 @@ def user(request, user_id):
 def product(request, product_id):
 	product = get_object_or_404(Product, pk=product_id)
 	return render(request, 'fs/product.html', {'product': product})
+
+def postform(request):
+	return render(request, 'fs/postform.html')
+
+def newpost(request):
+
+	post = Post()
+
+	if request.method == 'POST':
+		post.user_id = '1'
+		post.product_id = '1'
+		post.description = request.POST['description']
+		post.location = request.POST['location']
+		post.upload_date = timezone.now()
+		post.time = timezone.now()
+		post.expiration_date = request.POST['expiration_date']
+		post.save()
+		return HttpResponseRedirect(reverse('fs:index'))
+
