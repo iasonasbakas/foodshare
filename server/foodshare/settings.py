@@ -12,6 +12,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'fs.apps.FsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,6 +21,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    'EXCEPTION_HANDLER': 'djbr.views.custom_exception_handler',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

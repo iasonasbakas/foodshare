@@ -1,14 +1,14 @@
-.books {
+.posts {
   margin: 0 0 2em 0;
   padding: 0;
   width: 25em;
 }
 
-.books ul {
+.posts ul {
   list-style-type: none;
 }
 
-.books li {
+.posts li {
   width: 22em;
   position: relative;
   cursor: pointer;
@@ -23,7 +23,7 @@
   white-space: nowrap;
 }
 
-.books .title {
+.posts .product {
   width: 17em;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -31,23 +31,23 @@
     
 }
 
-.books li:hover {
+.posts li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
 
-.books a {
+.posts a {
   color: #888;
   text-decoration: none;
   position: relative;
 }
 
-.books a:hover {
+.posts a:hover {
   color:#607D8B;
 }
 
-.books .badge {
+.posts .badge {
   display: inline-block;
   font-size: small;
   color: white;

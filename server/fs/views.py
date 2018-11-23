@@ -1,45 +1,42 @@
-from django.shortcuts import render, get_object_or_404
+from .models import Post
+from .serializers import PostSerializer
+from rest_framework import generics
 
-from django.urls import reverse
-from django.utils import timezone
-from django.http.response import HttpResponseRedirect
+from django.contrib.staticfiles import views
 
-from .models import Post, User, Rating, Donation, Product
+def index(request, path=''):
+    if (path.endswith('.js')):
+        return views.serve(request, path)
+    else:
+        return views.serve(request, 'index.html')
 
-def index(request):
-    latest_posts = Post.objects.order_by('-upload_date')[:]
-    allproducts = Product.objects.order_by('-name')[:]
-    allusers = User.objects.order_by('-name')[:]
-    context = {'latest_posts': latest_posts, 'allproducts': allproducts, 'allusers': allusers}
-    return render(request, 'fs/index.html', context)
+class PostList(generics.ListCreateAPIView):
+    serializer_class = PostSerializer
 
-def post(request, post_id):
-	post = get_object_or_404(Post, pk=post_id)
-	return render(request, 'fs/post.html', {'post': post})
+    def get_queryset(self):
+        queryset = Post.objects.all()
+        product = self.request.query_params.get('product', None)
+        if product is not None:
+            queryset = queryset.filter(product__contains=product)
+        return queryset
 
-def user(request, user_id):
-	user = get_object_or_404(User, pk=user_id)
-	return render(request, 'fs/user.html', {'user': user})
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
-def product(request, product_id):
-	product = get_object_or_404(Product, pk=product_id)
-	return render(request, 'fs/product.html', {'product': product})
+def custom_exception_handler(exc, context):
+ # Call REST framework's default exception handler first,
+ # to get the standard error response.
+ response = exception_handler(exc, context)
 
-def postform(request):
-	return render(request, 'fs/postform.html')
+ # Now add the HTTP status code to the response.
+ if response is not None:
+     # Make sure the message gets in the "data" property
+     # and the status in the "status" property.
+     response = Response(data=str(response.data),
+                         status=response.status_code)
+ else:
+     # Create a new Response from scratch.
+     response = Response(data=str(exc), status=status.HTTP_400_BAD_REQUEST)
 
-def newpost(request):
-
-	post = Post()
-
-	if request.method == 'POST':
-		post.user_id = '1'
-		post.product_id = '1'
-		post.description = request.POST['description']
-		post.location = request.POST['location']
-		post.upload_date = timezone.now()
-		post.time = timezone.now()
-		post.expiration_date = request.POST['expiration_date']
-		post.save()
-		return HttpResponseRedirect(reverse('fs:index'))
-
+ return response
