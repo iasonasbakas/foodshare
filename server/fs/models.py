@@ -31,6 +31,7 @@ class Post(models.Model):
 	expiration_date = models.DateField('expiration_date')
 	product_photo = models.ImageField(null=True)
 
+
 	def __str__(self):
         	return "%s %s %s %s %s %s %s %s" % (self.user, self.product, self.description, self.location, self.upload_date, self.time, self.expiration_date, self.product_photo)
 

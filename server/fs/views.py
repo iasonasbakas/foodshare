@@ -1,6 +1,11 @@
 from .models import Post
 from .serializers import PostSerializer
 from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework import status
+
+from rest_framework import status
+from rest_framework.views import exception_handler
 
 from django.contrib.staticfiles import views
 
@@ -9,20 +14,6 @@ def index(request, path=''):
         return views.serve(request, path)
     else:
         return views.serve(request, 'index.html')
-
-class PostList(generics.ListCreateAPIView):
-    serializer_class = PostSerializer
-
-    def get_queryset(self):
-        queryset = Post.objects.all()
-        product = self.request.query_params.get('product', None)
-        if product is not None:
-            queryset = queryset.filter(product__contains=product)
-        return queryset
-
-class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
 
 def custom_exception_handler(exc, context):
  # Call REST framework's default exception handler first,
@@ -40,3 +31,17 @@ def custom_exception_handler(exc, context):
      response = Response(data=str(exc), status=status.HTTP_400_BAD_REQUEST)
 
  return response
+
+class PostList(generics.ListCreateAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        queryset = Post.objects.all()
+        product = self.request.query_params.get('product', None)
+        if product is not None:
+            queryset = queryset.filter(product__contains=product)
+        return queryset
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer

@@ -19,11 +19,11 @@ import {
 import axios from 'axios';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import PostDetails from './PostDetails.js';
+import NewPost from './NewPost.js';
 
 library.add(faEye);
 
@@ -32,23 +32,22 @@ class Search extends Component {
   render() {
     const { searchTerm, onSearchChange } = this.props;
     return (
-      <div className="Search">
-  <form>
-    <input
-      type="text"
-      value={searchTerm}
-      onChange={onSearchChange}
-    />
-        </form>
-      </div>
+      <form className="Search">
+        <input
+          type="text"
+          placeholder="search post by location"
+          value={searchTerm}
+          onChange={onSearchChange}
+        />
+      </form>
     );
-  } 
+  }
 }
 
 class ItemList extends Component {
 
   searchItem(item) {
-    return item.product.toLowerCase()
+    return item.location.toLowerCase()
       .includes(this.props.searchTerm.toLowerCase());
   }
 
@@ -63,22 +62,11 @@ class ItemList extends Component {
                   key={item.id}
                   className="justify-content-between">
                   <div className="post-item">
-                    <Badge pill>{item.id}</Badge>
-                    <span className="posts-buttons">
-                      <Button color="link">
-                        <FontAwesomeIcon
-                          icon="eye"
-                          onClick={() => this.props.onPreview(item.id)}
-                        />
-                      </Button>
-                    </span>
+                    <Badge pill>{item.location}</Badge>
                     <Link 
-                      to={'/posts/' + item.id}>{item.product}
+                      to={'/posts/' + item.id}>{item.description}
                     </Link>
                   </div>
-                  <Button
-                    close
-                    onClick={() => this.props.onDismiss(item.id)} />
                 </ListGroupItem>
             )}
           </ListGroup>
@@ -144,7 +132,8 @@ class Message extends React.Component {
   }
 }
 
-class Home extends Component {
+
+class Posts extends Component {
   
   constructor(props) {
     super(props);
@@ -226,7 +215,7 @@ class Home extends Component {
           onPreview={this.onPreview}
         />
         <div>
-          <Link to='/posts/'>
+          <Link to='/newpost'>
             <Button color="primary">New</Button>
           </Link>
         </div>
@@ -250,8 +239,8 @@ class App extends Component {
         <Router>
             <div>
                 <Route
-                  path="/" exact
-                  component={Home}
+                  path="/newpost" exact
+                  component={NewPost}
                 />
                 <Route
                   path="/posts/:id"
@@ -259,7 +248,7 @@ class App extends Component {
                 />
                 <Route
                   path="/posts/" exact
-                  component={PostDetails}
+                  component={Posts}
                 />
             </div>
         </Router>

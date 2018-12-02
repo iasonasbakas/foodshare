@@ -19,9 +19,14 @@ import axios from 'axios';
 import './App.css';
 
 const emptyPost = {
+  user: '',
   product: '',
   product_photo: '',
-  expiration_date: ''
+  expiration_date: '',
+  description: '',
+  location: '',
+  upload_date: ''
+
 };
 
 class PostDetails extends Component {
@@ -33,9 +38,6 @@ class PostDetails extends Component {
       message: '',
       post: {...emptyPost},
     };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleError(error) {
@@ -69,40 +71,7 @@ class PostDetails extends Component {
     }
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
-    const newPost = {...this.state.post};
-
-    newPost[name] = value;
-    this.setState({post: newPost});
-  }
   
-  handleSubmit(event) {
-    const id = this.state.post.id || '';
-    const post = this.state.post;
-    const method = this.state.post.id ? "PUT" : "POST";
-    axios(`/api/posts/${id}`, {
-      method: method,
-      data: JSON.stringify(post),
-      headers:{
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        let message = '';
-        if (method === "POST") {
-          message = 'post inserted';
-        } else {
-          message = 'post updated';
-        }
-        this.setState({toMain: true, message });
-      })
-      .catch(error => this.handleError(error));
-    event.preventDefault();
-  }
- 
   render() {
     if (this.state.toMain) {
       const message = this.state.message;
@@ -116,57 +85,26 @@ class PostDetails extends Component {
     
     const post = this.state.post;
 
-    return (
-      <div className="post">
-        <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <Label for="postProduct">Product</Label>
-            <Input
-              type="text"
-              name="product"
-              value={post.product}
-              onChange={this.handleInputChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="postUrl">
-              <a href={post.product_photo}
-                 target="_blank"
-                 rel="noopener noreferrer">Pic</a>
-            </Label>
-            <Input
-              type="pic"
-              name="pic"
-              value={post.product_photo}
-              onChange={this.handleInputChange}              
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="expiration_date">Expiration Date</Label>
-            <Input
-              type="text"
-              name="expiration_date"
-              value={post.expiration_date}
-              onChange={this.handleInputChange}              
-            />
-          </FormGroup>
-          <Button color="primary">Submit</Button>{' '}
-          <Link to='/'>
-            <Button color="secondary">Back</Button>{' '}
-          </Link>
-        </Form>
-        {this.state.message && 
-         <Alert
-           className="message"
-           color="danger">
-           Error<span> </span>
-           {this.state.message}
-         </Alert>
-        }
-      </div>
-    );
+    if(post)  {
+      return (
+        <ul class="list-group col-md-6">
+          <li class="list-group-item"> User: {post.user} </li>
+          <li class="list-group-item"> Product: {post.product} </li>
+          <li class="list-group-item"> Location: {post.location} </li>
+          <li class="list-group-item"> Expiration date: {post.expiration_date} </li>
+          <li class="list-group-item"> Upload date: {post.upload_date} </li>
+          <li class="list-group-item">Time: {post.time} </li>
+        </ul> 
+      );
+    } else {
+      return (
+        <div class="alert alert-warning">
+          <strong>Post doesn't exist!</strong> Please try to search for another post.
+        </div>
+      );
+    }  
   }
-}
+} 
 
 
 export default PostDetails;

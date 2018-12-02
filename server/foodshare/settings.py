@@ -27,7 +27,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
-    'EXCEPTION_HANDLER': 'djbr.views.custom_exception_handler',
+    'EXCEPTION_HANDLER': 'fs.views.custom_exception_handler',
 }
 
 MIDDLEWARE = [
