@@ -19,22 +19,23 @@ import axios from 'axios';
 import './App.css';
 
 
-const emptyPost = {
+const emptyDonation = {
   user: '',
-  product: '',
-  location: '',
-  description: '',
-  expiration_date: '',
+  name: '',
+  amount: '',
+  donation_type: '',
+  duration: '',
+  message: '',
 };
 
-class NewPost extends Component {
+class Donation extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       toMain: false,
       message: '',
-      post: {...emptyPost},
+      donation: {...emptyDonation},
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -64,7 +65,7 @@ class NewPost extends Component {
  
   componentDidMount() {
     if (!this.props.match.params.id) {
-      this.setState({post: {...emptyPost}});
+      this.setState({donation: {...emptyDonation}});
     } else {
       axios.get('/api/' + this.props.match.url)
         .then(response => this.setState({post: {...response.data}}))
@@ -76,10 +77,10 @@ class NewPost extends Component {
     const target = event.target;
     const name = target.name;
     const value = target.value;
-    const newPost = {...this.state.post};
+    const newDonation = {...this.state.donation};
 
-    newPost[name] = value;
-    this.setState({post: newPost});
+    newDonation[name] = value;
+    this.setState({donation: newDonation});
   }
 
   handleSubmit(event) {
@@ -115,27 +116,27 @@ class NewPost extends Component {
         />;
     }
     
-    const post = this.state.post;
+    const donation = this.state.donation;
 
     return (
-      <div className="post">
+      <div className="donation">
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label for="location">Location</Label>
+            <Label for="amount">Amount</Label>
             <Input
               type="text"
-              name="location"
-              value={post.location}
+              name="amount"
+              value={donation.amount}
               required="required"
               onChange={this.handleInputChange}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="description">Description</Label>
+            <Label for="message">Message</Label>
             <Input
               type="text"
-              name="description"
-              value={post.description}
+              name="message"
+              value={donation.message}
               required="required"
               onChange={this.handleInputChange}           
             />
@@ -145,29 +146,19 @@ class NewPost extends Component {
             <Input
               type="text"
               name="user"
-              value={post.user}
+              value={donation.user}
               required="required"
               onChange={this.handleInputChange}           
             />
           </FormGroup>
           <FormGroup>
-            <Label for="product">Product</Label>
+            <Label for="donation_type">Donation Type</Label>
             <Input
               type="text"
-              name="product"
-              value={post.product}
+              name="donation_type"
+              value={donation.donation_type}
               required="required"
               onChange={this.handleInputChange}           
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="expiration_date">Expiration Date</Label>
-            <Input
-              type="Date"
-              name="expiration_date"
-              value={post.expiration_date}
-              required="required"
-              onChange={this.handleInputChange}              
             />
           </FormGroup>
           <Button color="primary" type="submit">Submit</Button>
@@ -188,4 +179,4 @@ class NewPost extends Component {
   }
 }
 
-export default NewPost;
+export default Donation;
