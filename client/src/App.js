@@ -23,17 +23,6 @@ class App extends Component {
       <div className="container">   
         <Router className="App">
           <div>
-            <Navbar color="light" light expand="md">
-              <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
-              <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink tag={Link} to="/posts/">Posts</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/donation/">Donation</NavLink>
-            </NavItem>
-              </Nav>
-            </Navbar>
             <Route
               path="/" exact
               component={Home}

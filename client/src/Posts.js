@@ -21,6 +21,7 @@ import {
 } from "react-router-dom";
 
 import axios from 'axios';
+import Header from './components/Header';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,6 +33,9 @@ class Search extends Component {
 
   render() {
     const { searchTerm, onSearchChange } = this.props;
+
+    return (<Header />)
+
     return (
       <form className="Search">
         <input

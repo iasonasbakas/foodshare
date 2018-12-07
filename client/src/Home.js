@@ -15,6 +15,9 @@ import {
   ModalFooter
 } from 'reactstrap';
 
+import Header from './components/Header';
+import Carou from './components/Carou';
+
 import {
   Redirect,
   Link
@@ -33,8 +36,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div>Hi</div>
-
+      <React.Fragment>
+        <Header />
+      </React.Fragment>
     );
   }
 };

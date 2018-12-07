@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 
 import axios from 'axios';
+import Header from './components/Header';
 
 import './App.css';
 
@@ -118,11 +119,13 @@ class Donation extends Component {
     
     const donation = this.state.donation;
 
+    return (<Header />)
+    
     return (
       <div className="donation">
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label for="amount">Amount</Label>
+            <Label for="amount">Ammount</Label>
             <Input
               type="text"
               name="amount"
