@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './components/Header.js';
 
 import {
   Button,
@@ -15,8 +16,6 @@ import {
 } from "react-router-dom";
 
 import axios from 'axios';
-
-import './App.css';
 
 const emptyPost = {
   user: '',
@@ -87,6 +86,8 @@ class PostDetails extends Component {
 
     if(post)  {
       return (
+        <div classname="postdetails">
+        <Header />
         <ul class="list-group col-md-6">
           <li class="list-group-item"> User: {post.user} </li>
           <li class="list-group-item"> Product: {post.product} </li>
@@ -95,6 +96,7 @@ class PostDetails extends Component {
           <li class="list-group-item"> Upload date: {post.upload_date} </li>
           <li class="list-group-item">Time: {post.time} </li>
         </ul> 
+        </div>
       );
     } else {
       return (

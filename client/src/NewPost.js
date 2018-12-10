@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './components/Header.js';
 
 import {
   Button,
@@ -15,9 +16,6 @@ import {
 } from "react-router-dom";
 
 import axios from 'axios';
-
-import './App.css';
-
 
 const emptyPost = {
   user: '',
@@ -119,6 +117,7 @@ class NewPost extends Component {
 
     return (
       <div className="post">
+        <Header />
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="location">Location</Label>

@@ -17,9 +17,6 @@ import {
 import axios from 'axios';
 import Header from './components/Header';
 
-import './App.css';
-
-
 const emptyDonation = {
   user: '',
   name: '',
@@ -118,11 +115,10 @@ class Donation extends Component {
     }
     
     const donation = this.state.donation;
-
-    return (<Header />)
     
     return (
       <div className="donation">
+        <Header />
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="amount">Ammount</Label>

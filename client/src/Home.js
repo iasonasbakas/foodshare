@@ -33,12 +33,12 @@ library.add(faEye);
 
 
 class Home extends Component {
-
   render() {
     return (
-      <React.Fragment>
+      <div classname="header">
         <Header />
-      </React.Fragment>
+        <Carou />
+      </div>
     );
   }
 };

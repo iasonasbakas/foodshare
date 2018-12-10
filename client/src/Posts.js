@@ -33,9 +33,6 @@ class Search extends Component {
 
   render() {
     const { searchTerm, onSearchChange } = this.props;
-
-    return (<Header />)
-
     return (
       <form className="Search">
         <input
@@ -205,10 +202,12 @@ class Posts extends Component {
 
     return(
       <div>
+        <Header />
         <PostPreview
           post={postToPreview}
           modal={this.state.togglePreviewModal}
-          toggle={this.togglePreview}/>
+          toggle={this.togglePreview}
+        />
         <Search
           value={this.searchTerm}
           onSearchChange={this.onSearchChange}

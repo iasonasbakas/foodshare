@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import {
@@ -10,11 +9,17 @@ import {
   NavLink,
 } from 'reactstrap';
 
+// CSS Imports
+import './App.css';
+
+// JS Imports
 import PostDetails from './PostDetails.js';
 import NewPost from './NewPost.js';
 import Posts from './Posts.js';
 import Donation from './Donation.js';
 import Home from './Home.js'
+import Header from './components/Header.js';
+import Carou from './components/Carou.js';
 
 class App extends Component {
  
