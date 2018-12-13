@@ -94,7 +94,7 @@ class NewPost extends Component {
       .then(response => {
         let message = '';
         if (method === "POST") {
-          message = 'book inserted';
+          message = 'post inserted';
         }
         this.setState({toMain: true, message });
       })

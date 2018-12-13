@@ -18,10 +18,7 @@ import {
 import Header from './components/Header';
 import Carou from './components/Carou';
 
-import {
-  Redirect,
-  Link
-} from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import axios from 'axios';
 
