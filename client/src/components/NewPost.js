@@ -81,7 +81,7 @@ class NewPost extends Component {
   }
 
   handleSubmit(event) {
-    const id = this.state.post.id || '';
+    const id = this.state.post.id;
     const post = this.state.post;
     const method = this.state.post.id;
     axios(`/api/post/${id}`, {

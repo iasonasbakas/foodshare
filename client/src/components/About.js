@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-
 import Header from './Header';
-import { Redirect, Link } from "react-router-dom";
 
-import axios from 'axios';
 
 class Paragraph extends Component {
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './img/log.jpg';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { NavItem, NavLink } from 'reactstrap';
 import { Nav, NavDropdown, Form, FormControl, Button, Navbar} from 'react-bootstrap';
+
+import './header.css'
 
 class Header extends Component {
   render() {
