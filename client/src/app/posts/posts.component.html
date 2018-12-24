@@ -1,3 +1,17 @@
+<div>
+  <label>Description:</label> <input #postDescription /> 
+  <label>Location:</label> <input #postLocation />
+  <label>Expiration date:</label> <input #postExpDate />
+  <!-- (click) passes input values to add() and then clears input -->
+  <button (click)="add(postDescription.value, postLocation.value, postExpDate.value);
+                   postDescription.value=''; 
+                   postLocation.value='';
+                   postExpDate.value='';
+                   postDescription.value=''">
+    Add
+  </button>
+</div>
+
 <h1>{{title}}</h1>
 <h2>Posts</h2>
 <ul class="posts">

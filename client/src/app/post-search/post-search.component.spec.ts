@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessageComponent } from './message.component';
+import { PostSearchComponent } from './post-search.component';
 
-describe('MessageComponent', () => {
-  let component: MessageComponent;
-  let fixture: ComponentFixture<MessageComponent>;
+describe('PostSearchComponent', () => {
+  let component: PostSearchComponent;
+  let fixture: ComponentFixture<PostSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageComponent ]
+      declarations: [ PostSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessageComponent);
+    fixture = TestBed.createComponent(PostSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

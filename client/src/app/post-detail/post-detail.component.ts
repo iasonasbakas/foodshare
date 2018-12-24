@@ -36,4 +36,9 @@ export class PostDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.postService.updatePost(this.post)
+      .subscribe(() => this.goBack());
+  }
+
 }

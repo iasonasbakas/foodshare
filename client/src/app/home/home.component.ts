@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   getPosts(): void {
     this.postService.getPosts()
-      .subscribe(PostsComponent => this.posts = posts.slice(1, 5));
+      .subscribe(PostsComponent => this.posts = this.posts.slice(1, 5));
   }
 
 
