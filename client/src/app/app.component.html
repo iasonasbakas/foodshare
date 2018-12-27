@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>{{title}}</h1>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(100, 139, 208)">
+    <a class="navbar-brand" href="#" routerLink="/home">FoodShare</a>
     <button class="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -11,19 +11,35 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
-             routerLink="/dashboard"
+             routerLink="/home"
              href="#">Home
             <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/posts"
-             href="#">Posts</a>
+             href="#">Explore</a>
         </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/posts"
+             href="#">Donate</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/posts"
+             href="#">Profile</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/posts"
+             href="#">Sign Up</a>
+        </li>
+
       </ul>
     </div>
   </nav>
