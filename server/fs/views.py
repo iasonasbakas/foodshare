@@ -1,5 +1,5 @@
-from .models import Post
-from .serializers import PostSerializer
+from .models import Post, User
+from .serializers import PostSerializer, UserSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status

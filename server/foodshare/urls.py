@@ -14,5 +14,4 @@ urlpatterns = [
          name='token_obtain_pair'),
     path(r'api/token/refresh/', TokenRefreshView.as_view(),
          name='token_refresh'),
-
 ]
