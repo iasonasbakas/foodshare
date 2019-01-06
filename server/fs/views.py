@@ -1,8 +1,9 @@
-from .models import Post, User
-from .serializers import PostSerializer, UserSerializer
+from .models import Post, User, Profile
+from .serializers import PostSerializer, ProfileSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
 
 from rest_framework import status
 from rest_framework.views import exception_handler
@@ -45,3 +46,13 @@ class PostList(generics.ListCreateAPIView):
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class ProfileCreate(generics.CreateAPIView):
+     serializer_class = ProfileSerializer
+
+     def perform_create(self, serializer):
+         serializer.save(user=self.request.user)

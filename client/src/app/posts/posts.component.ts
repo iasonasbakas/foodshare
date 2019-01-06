@@ -30,12 +30,10 @@ export class PostsComponent implements OnInit {
 
     description = description.trim();
     location = location.trim();
+
     if (!description || !location || !expiration_date ||! product || !user) { return; }
     this.postService.addPost({ description, location, expiration_date, upload_date, product_photo, user, product, id, time } as Post)
       .subscribe(post => {
-        // If the operation has failed, postService's handleError()
-        // will have given an empty result; so we add to the
-        // posts array only if a non-empty result has been produced.
         if (post) {
           this.posts.push(post);
         }

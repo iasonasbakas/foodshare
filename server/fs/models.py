@@ -1,28 +1,29 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-class User(models.Model):
-	name = models.CharField(max_length=15)
-	surname = models.CharField(max_length=15)
-	email = models.EmailField()
-	username = models.CharField(max_length=25)
-	password = models.CharField(max_length=25)
-	location = models.CharField(max_length=25)
-	photo = models.ImageField()
-	
-	def __str__(self):
-        	return "%s %s %s %s %s %s %s" % (self.name, self.surname, self.email, self.username, self.password, self.location, self.photo)
+class Profile(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	location = models.CharField(max_length=30, blank=True)
+	photo = models.CharField(max_length=50, blank=True)
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
 
 class Product(models.Model):
 	name = models.CharField(max_length=15)
 	description = models.CharField(max_length=100)
 	price = models.FloatField()
 
-	def __str__(self):
-        	return "%s %s %s" % (self.name, self.description, self.price)
-
-
 class Post(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	user = models.ForeignKey(Profile, on_delete=models.CASCADE)
 	product = models.ForeignKey(Product, on_delete=models.CASCADE)
 	description = models.CharField(max_length=100)
 	location = models.CharField(max_length=100)
@@ -31,13 +32,8 @@ class Post(models.Model):
 	expiration_date = models.DateField('expiration_date')
 	product_photo = models.ImageField(null=True)
 
-
-	def __str__(self):
-        	return "%s %s %s %s %s %s %s %s" % (self.user, self.product, self.description, self.location, self.upload_date, self.time, self.expiration_date, self.product_photo)
-
-
 class Donation(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+	user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
 	name = models.CharField(max_length=15, null=True)
 	amount = models.FloatField()
 	date = models.DateField(auto_now_add=True)
@@ -46,17 +42,7 @@ class Donation(models.Model):
 	duration = models.IntegerField()
 	message = models.CharField(max_length=100)
 
-	"""def __str__(self):
-        	return "%s %s %s %s %s %s %s %s" % (self.user, self.name, self.amount, self.date, self.time, self.donation_type, self.duration, self.message)"""
-
-
 class Rating(models.Model):
 	post = models.ForeignKey(Post, on_delete=models.CASCADE)
 	rating = models.IntegerField()
 	description = models.CharField(max_length=100)
-
-	"""def __str__(self):
-        	return "%s %s %s" % (self.post, self.rating, self.description)"""
-
-
-	

@@ -7,7 +7,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { MessageService } from './message.service';
 import { Post } from './post';
-import { post } from 'selenium-webdriver/http';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

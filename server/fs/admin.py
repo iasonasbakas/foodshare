@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import User, Product, Post, Rating, Donation
+from .models import  Product, Post, Rating, Donation, Profile
 
-admin.site.register(User)
+admin.site.register(Profile)
 admin.site.register(Product)
 admin.site.register(Post)
 admin.site.register(Rating)
