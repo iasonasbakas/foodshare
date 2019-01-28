@@ -2,13 +2,13 @@ from .models import Post, User, Profile
 from .serializers import PostSerializer, ProfileSerializer
 from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.viewsets import ModelViewSet
 
 from rest_framework import status
 from rest_framework.views import exception_handler
 
 from django.contrib.staticfiles import views
+
+from rest_framework import permissions
 
 def index(request, path=''):
     if (path.endswith('.js')):

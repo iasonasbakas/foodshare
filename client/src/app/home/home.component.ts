@@ -10,17 +10,12 @@ import { Post } from '../post';
 })
 export class HomeComponent implements OnInit {
 
-  posts: Post[] = [];
 
-  constructor(private postService: PostService) { }
+
+  constructor() { }
 
   ngOnInit() {
-    this.getPosts();
-  }
 
-  getPosts(): void {
-    this.postService.getPosts()
-      .subscribe(PostsComponent => this.posts = this.posts.slice(1, 5));
   }
 
 

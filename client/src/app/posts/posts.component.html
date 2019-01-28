@@ -3,61 +3,46 @@
 
   <div class="container">
     <div class="row" *ngFor="let post of posts" class="col-sm"
-       routerLink="/detail/{{post.id}}"> 
+       routerLink="/posts/{{post.id}}">
        <div class="column">
        <div class="col-lg-6 offset-lg-3" style="height: 50%">
-      
+
       <div class="cardbox shadow-lg bg-white">
-       
+
        <div class="cardbox-heading">
         <div class="media m-0">
          <div class="d-flex mr-3">
         <a href=""><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User"></a>
          </div>
          <div class="media-body">
-          <p class="m-0">{{post.username}}</p>
-        <small><span><i class="icon ion-md-pin"></i>{{post.location}}</span></small>
-        <small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small>
+          <p class="m-0">{{ post.username }}</p>
+        <small><span><i class="icon ion-md-pin"></i>{{ post.location }}</span></small>
+        <small><span><i class="icon ion-md-time"></i>Uploaded: {{ post.upload_date }}</span></small>
          </div>
         </div><!--/ media -->
        </div><!--/ cardbox-heading -->
-        
+
        <div class="cardbox-item">
         <img class="img-fluid" src="https://images.milkandmore.co.uk/image/upload/w_iw/f_auto/w_380,d_back_up_image.jpg,c_scale/v1/products/2004514_1.jpg" style="width: 100%" alt="Image">
        </div><!--/ cardbox-item -->
        <div class="cardbox-base">
         <ul class="float-right">
          <li><a><i class="fa fa-comments"></i></a></li>
-         <li><a><em class="mr-5">12</em></a></li>
+         <li><a><em class="mr-5">Talk to giver</em></a></li>
         </ul>
         <ul>
          <li><a><i class="fa fa-thumbs-up"></i></a></li>
-         <li><a><span>20 Listings</span></a></li>
-        </ul>        
-       </div><!--/ cardbox-base -->   
+         <li><a><em class="mr-5">Make inquiry</em></a></li>
+        </ul>
+       </div><!--/ cardbox-base -->
       </div><!--/ cardbox -->
 
-      </div><!--/ col-lg-6 --> 
+      </div><!--/ col-lg-6 -->
     </div><!--/ column -->
   </div><!--/ row -->
  </div><!--/ container -->
 
 <div class="col-lg-4">
-  <a class="btn icon-btn btn-primary btn pull-right" data-toggle="modal" data-target="#postModal" style="font-size: 2.8rem; line-height: 0.9; font-weight: 100; color: white;">
-                +
-  </a>
-</div>
-
-<div>
-  <label>Description:</label> <input #postDescription /> 
-  <label>Location:</label> <input #postLocation />
-  <label>Expiration date:</label> <input #postExpDate />
-  <!-- (click) passes input values to add() and then clears input -->
-  <button (click)="add(postDescription.value, postLocation.value, postExpDate.value);
-                   postDescription.value=''; 
-                   postLocation.value='';
-                   postExpDate.value='';
-                   postDescription.value=''">
-    Add
-  </button>
+  <a class="btn icon-btn btn-primary btn pull-right" data-toggle="modal" data-target="#postModal"
+      style="font-size: 2.8rem; line-height: 0.9; font-weight: 100; color: white;"> + </a>
 </div>

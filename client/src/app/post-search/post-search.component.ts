@@ -25,7 +25,7 @@ export class PostSearchComponent {
   public posts$: Observable<Post[]>;
 
   constructor(private router: Router,
-              private bookService: PostService) {}
+              private postService: PostService) {}
 
   // Push a search term into the observable stream.
   search = (text$: Observable<string>) =>
@@ -34,7 +34,7 @@ export class PostSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-                this.bookService.searchPosts(term).pipe(
+                this.postService.searchPosts(term).pipe(
                   tap(() => this.searchFailed = false),
                   catchError(() => {
                     console.log('Failed!');

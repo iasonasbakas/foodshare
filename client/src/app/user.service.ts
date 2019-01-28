@@ -17,7 +17,8 @@ const httpOptions = {
 })
 export class UserService {
 
-  private usersUrl = 'api/user/register'
+  private usersUrl = 'api/user/'
+  private registerUrl = 'api/user/register/'
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -32,7 +33,7 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user , httpOptions).pipe(
+    return this.http.post<User>(this.registerUrl, user , httpOptions).pipe(
       tap((user: User) => this.log(`added user w/ id=${user.id}`)),
       catchError(this.handleError<User>('addUser'))
     );
@@ -61,6 +62,5 @@ private handleError<T> (operation = 'operation', result?: T) {
     return of(result as T);
   };
 }
-
 
 }

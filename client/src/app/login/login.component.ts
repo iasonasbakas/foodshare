@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { catchError } from 'rxjs/operators';
-
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -31,4 +29,5 @@ export class LoginComponent {
   logout() {
     this.auth.logout();
   }
+
 }

@@ -25,13 +25,13 @@ export class PostsComponent implements OnInit {
       .subscribe(posts => this.posts = posts);
   }
 
-  add(description: string, location: String, expiration_date: string,
-    upload_date: string, product_photo: string, user: number, product: number, id: number, time: string ): void {
+  add(id: number, user: number, location: string, description: string, product: number,  product_photo: string,
+        upload_date: string, expiration_date: string, time: string ): void {
 
     description = description.trim();
     location = location.trim();
 
-    if (!description || !location || !expiration_date ||! product || !user) { return; }
+    if (!description || !location || !expiration_date || !product || !user) { return; }
     this.postService.addPost({ description, location, expiration_date, upload_date, product_photo, user, product, id, time } as Post)
       .subscribe(post => {
         if (post) {
