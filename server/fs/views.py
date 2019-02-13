@@ -47,6 +47,12 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+class PostCreate(generics.CreateAPIView):
+    serializer_class = PostSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(post=self.request.post)
+
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer

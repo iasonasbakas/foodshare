@@ -3,10 +3,37 @@ from rest_framework.validators import UniqueValidator
 from django.core.exceptions import ValidationError
 import re
 
-from .models import Post, User, Profile
+from .models import Post, User, Profile, Donation, Rating, Product
 
 
 class PostSerializer(serializers.ModelSerializer):
+
+    description = serializers.CharField(
+        required=True,
+    )
+
+    location = serializers.CharField(
+        required=True,
+        min_length=3,
+    )
+
+    expiration_date = serializers.DateField(
+        required=True
+    )
+
+    def create(self, validated_data):
+        user = validated_data['user']
+        product = validated_data['product']
+        description = validated_data['description']
+        location = validated_data['location']
+        upload_date = validated_data['upload_date']
+        time = validated_data['time']
+        expiration_date = validated_data['expiration_date']
+        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date,
+                    time=time, expiration_date= expiration_date)
+        post.save()
+        return validated_data
+
     class Meta:
         model = Post
         fields = ('id', 'user', 'product', 'description',
@@ -86,3 +113,49 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name', 'location', 'photo')
+
+class DonationSerializer(serializers.ModelSerializer):
+
+    def create(self, validated_data):
+        user = validated_data['user']
+        name = validated_data['name']
+        amount = validated_data['amount']
+        date = validated_data['date']
+        time = validated_data['time']
+        donation_type = validated_data['donation_type']
+        duration = validated_data['duration']
+        message = validated_data['message']
+        donation = Donation(user=user, name=name, amount=amount, date=date, time=time,
+                    donation_type=donation_type, duration=duration, message=message)
+        donation.save()
+        return validated_data
+
+    class Meta:
+        model = Donation
+        fields = ('id', 'user', 'name', 'amount', 'date', 'time', 'donation_type', 'duration', 'message')
+
+class RatingSerializer(serializers.ModelSerializer):
+
+    def create(self, validated_data):
+        post = validated_data['post']
+        rating = validated_data['rating']
+        description = validated_data['description']
+        rating = Rating(post=post, rating=rating, description=description)
+        rating.save()
+        return validated_data
+    class Meta:
+        model = Rating
+        fields = ('post', 'rating', 'description')
+
+class ProductSerializer(serializers.ModelSerializer):
+
+    def create(self, validated_data):
+        name = validated_data['name']
+        description = validated_data['description']
+        price = validated_data['price']
+        product = Product(name=name, description=description, price=price)
+        product.save()
+        return validated_data
+    class Meta:
+        model = Product
+        fields = ('name', 'description', 'price')
