@@ -1,9 +1,60 @@
-.image {
-  position: fixed;
-  min-width: 100%;
-  background-image: url("/../../assets/img/home-background.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-  background-size: cover;
-  }
+.container {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+h1 {
+  color: #1fa53d;
+}
+
+#lp {
+ background-color: #f8f9fa;
+ width: 100vw;
+ position: relative;
+ margin-left: -50vw;
+ height: 600px;
+ margin-top: 50px;
+ left: 50%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1fa53d;
+    border-color: #1fa53d;
+}
+
+.btn-outline-primary {
+    color: #1fa53d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #1fa53d;
+}
+
+.counter {
+    background-color:#f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}

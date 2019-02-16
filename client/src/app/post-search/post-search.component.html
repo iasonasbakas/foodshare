@@ -4,8 +4,13 @@
     <ngb-highlight [result]="r.location" [term]="t"></ngb-highlight>
   </ng-template>
 
-  <label for="search-box">Post search:</label>
-  <input id="search-box"
+<form class="search">
+  <div class="search__wrapper">
+    <input type="text" name="" placeholder="Search for..." class="search__field">
+    <button type="submit" class="fa fa-search search__icon"></button>
+  </div>
+</form>
+<input id="search-box"
          type="text"
          class="form-control"
          [class.alert-warning]="searchFailed"

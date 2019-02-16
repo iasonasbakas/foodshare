@@ -10,13 +10,9 @@ import { Post } from '../post';
 })
 export class HomeComponent implements OnInit {
 
-
-
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
 
 }

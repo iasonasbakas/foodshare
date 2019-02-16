@@ -1,6 +1,6 @@
 <div class="container">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(100, 139, 208)">
-    <a class="navbar-brand" href="#" routerLink="/home">FoodShare</a>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white">
+    <a class="navbar-brand" href="#" routerLink="/home"><img src="/../../assets/img/logo3.png"></a>
     <button class="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -12,44 +12,51 @@
     </button>
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/home"
-             href="#">Home
+             href="#">HOME
             <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/posts"
-             href="#">Explore</a>
+             href="#">EXPLORE</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/donation"
-             href="#">Donate</a>
+             href="#">DONATE</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/user"
-             href="#">Profile</a>
+             href="#">PROFILE</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
+          <a class="btn btn-primary text-white shadow"
              routerLink="/register"
-             href="#">Sign Up</a>
+             href="#">SIGN UP</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
+          <a class="btn btn-outline-primary"
              routerLink="/login"
              href="#">
-            {{ auth.isLoggedIn ? 'Logout' : 'Login' }}</a>
+            {{ auth.isLoggedIn ? 'LOGOUT' : 'LOGIN' }}</a>
         </li>
-
+        <li class="nav-item" routerLinkActive="active">
+        	<form class="search">
+  				<div class="search__wrapper">
+    				<input type="text" name="" placeholder="Search for..." class="search__field">
+    					<button type="submit" class="fa fa-search search__icon"></button>
+ 				</div>
+			</form>
+        </li>        
       </ul>
     </div>
   </nav>
-
+  
   <router-outlet></router-outlet>
   <app-messages></app-messages>
 </div>
