@@ -12,10 +12,30 @@ h1 {
  width: 100vw;
  position: relative;
  margin-left: -50vw;
- height: 600px;
+ height: 580px;
  margin-top: 50px;
  left: 50%;
 }
+
+#counters {
+ background-color: #ffff;
+ width: 100vw;
+ position: relative;
+ margin-left: -50vw;
+ height: 180px;
+ left: 50%;
+}
+
+#about {
+ background-color: #f8f9fa;
+ width: 100vw;
+ position: relative;
+ margin-left: -50vw;
+ height: 400px;
+ margin-top: 50px;
+ left: 50%;
+}
+
 
 .btn-primary {
     color: #fff;
@@ -31,7 +51,7 @@ h1 {
 }
 
 .counter {
-    background-color:#f5f5f5;
+    background-color:#ffff;
     padding: 20px 0;
     border-radius: 5px;
 }
@@ -45,7 +65,7 @@ h1 {
 }
 
 .count-text {
-    font-size: 13px;
+    font-size: 20px;
     font-weight: normal;
     margin-top: 10px;
     margin-bottom: 0;
@@ -56,5 +76,5 @@ h1 {
     margin: 0 auto;
     float: none;
     display: table;
-    color: #4ad1e5;
+    color: #007bff;
 }

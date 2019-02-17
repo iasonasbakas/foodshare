@@ -1,6 +1,3 @@
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
   <div class="container">
     <div class="row" *ngFor="let post of posts" class="col-sm"
        routerLink="/posts/{{post.id}}">
@@ -15,8 +12,7 @@
         <a href=""><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User"></a>
          </div>
          <div class="media-body">
-          <p class="m-0">{{ post.username }}</p>
-        <small><span><i class="icon ion-md-pin"></i>{{ post.location }}</span></small>
+        <small><span><i class="icon ion-md-pin"></i>{{ getUser() }}</span></small>
         <small><span><i class="icon ion-md-time"></i>Uploaded: {{ post.upload_date }}</span></small>
          </div>
         </div><!--/ media -->
@@ -26,17 +22,11 @@
         <img class="img-fluid" src="https://images.milkandmore.co.uk/image/upload/w_iw/f_auto/w_380,d_back_up_image.jpg,c_scale/v1/products/2004514_1.jpg" style="width: 100%" alt="Image">
        </div><!--/ cardbox-item -->
        <div class="cardbox-base">
-        <ul class="float-right">
-         <li><a><i class="fa fa-comments"></i></a></li>
-         <li><a><em class="mr-5">Talk to giver</em></a></li>
-        </ul>
-        <ul>
-         <li><a><i class="fa fa-thumbs-up"></i></a></li>
-         <li><a><em class="mr-5">Make inquiry</em></a></li>
+        <ul class="req">
+         <li><a href="#" routerLink="/register" class="btn btn-primary1 shadow mr-2">Request Item</a></li>
         </ul>
        </div><!--/ cardbox-base -->
       </div><!--/ cardbox -->
-
       </div><!--/ col-lg-6 -->
     </div><!--/ column -->
   </div><!--/ row -->

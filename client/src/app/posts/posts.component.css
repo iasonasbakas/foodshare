@@ -1,10 +1,7 @@
-/*
-*
-* ===========================================================
-*     HERO SECTION
-* ===========================================================
-*
-*/
+#req {
+  align-items: center;
+}
+
 .hero {
   padding: 6.25rem 0px !important;
   margin: 0px !important;
@@ -15,11 +12,8 @@
   padding: 0px !important;
 }
 
-/* ------------------------------- */
-/* Cardbox Heading
----------------------------------- */
 .cardbox .cardbox-heading {
-  padding: 16px;
+  padding: 10px;
   margin: 0;
 }
 .cardbox .btn-flat.btn-flat-icon {
@@ -38,31 +32,8 @@ justify-content: center;
 align-items: center;
 text-align: center;
 }
-.cardbox .float-right .dropdown-menu{
-  position: relative;
-  left: 13px !important;  
-}
-.cardbox .float-right a:hover{
-  background: #f4f4f4 !important;   
-}
-.cardbox .float-right a.dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 4px 0px 4px 10px;
-  clear: both;
-  font-weight: 400;
-  font-family: 'Abhaya Libre', serif;
-  font-size: 14px !important;
-  color: #848484;
-  text-align: inherit;
-  white-space: nowrap;
-  background: 0 0;
-  border: 0;
-}
 
-/* ------------------------------- */
-/* Media Section
----------------------------------- */
+
 .media {
   display: -ms-flexbox;
   display: flex;
@@ -77,8 +48,8 @@ text-align: center;
   margin-right: 1rem !important;
 }
 .media img{
-  width: 48px !important;
-  height: 48px !important;
+  width: 60px !important;
+  height: 60px !important;
   padding: 2px;
   border: 2px solid #f4f4f4;
 } 
@@ -100,10 +71,6 @@ text-align: center;
   margin-right: 10px;
 }
 
-
-/* ------------------------------- */
-/* Cardbox Item
----------------------------------- */
 .cardbox .cardbox-item {
     position: relative;
     display: block;
@@ -120,18 +87,14 @@ text-align: center;
     height: auto;
 }
 
-
-/* ------------------------------- */
-/* Cardbox Base
----------------------------------- */
 .cardbox-base{
- border-bottom: 2px solid #f4f4f4;
+ border-bottom: 0px solid #f4f4f4;
 }   
 .cardbox-base ul{
  margin: 10px 0px 10px 15px!important; 
  padding: 10px !important;
  font-size: 0px;    
-  display: inline-block;
+ display: inline-block;
 }
 .cardbox-base li {
   list-style: none;
@@ -141,60 +104,10 @@ text-align: center;
 }
 
 .cardbox-base li a{
-  margin: 0px !important;
-  padding: 0px !important;
-}
-.cardbox-base li a i{
- position: relative;
- top: 4px; 
- font-size: 16px;
- color: #8d8d8d;
- margin-right: 15px;
-}
-.cardbox-base li a span{
- font-family: 'Rokkitt', serif;
- font-size: 14px;
- color: #8d8d8d;
- margin-left: 20px;
- position: relative;
- top: 5px; 
-}
-.cardbox-base li a em{
- font-family: 'Rokkitt', serif;
- font-size: 14px;
- color: #8d8d8d;
- position: relative;
- top: 3px; 
-}
-.cardbox-base li a img{
-  width: 25px;
-  height: 25px;
-  margin: 0px !important;
-  border: 2px solid #fff;
+  margin-left: 120px !important;
+  padding: 10px !important;
 }
 
-
-/* ------------------------------- */
-/* Cardbox Comments
----------------------------------- */
-.cardbox-comments{
-  padding: 10px 40px 20px 40px !important;
-  font-size: 0px;   
-  text-align: center;
-  display: inline-block;
-}
-.cardbox-comments .comment-avatar img{
-  margin-top: 1px;
-  margin-right: 10px;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-}
-.cardbox-comments .comment-body {
-  overflow: auto;
-}
 .search {
  position: relative;
  right: -60px;
@@ -239,10 +152,6 @@ text-align: center;
  display: block;
 }
 
-
-/* ------------------------------- */
-/* Author
----------------------------------- */
 .author a{
  font-family: 'Rokkitt', serif;
  font-size: 16px;
@@ -266,6 +175,15 @@ h4 {
   position: relative;
 }
 
+.btn-primary1 {
+  color: #fff;
+  background-color: #1fa53d;
+  border-color: #1fa53d;
+  text-align: center;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
 .dashboard-item {
   padding: 20px;
   text-align: center;
@@ -284,14 +202,11 @@ h4 {
 
 .column {
   float: left;
-  width: 50%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+  width: 48%;
+  margin-top: 100px;
+  padding-right: 50px;
+  padding-left: 30px;
+  margin-bottom: 25px;
 }
 
  /* Responsive layout - when the screen is less than 600px wide, 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 import { Identifiers } from '@angular/compiler';
+import { User } from '../user';
 
 @Component({
   selector: 'app-posts',

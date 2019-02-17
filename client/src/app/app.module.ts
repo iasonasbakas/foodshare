@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CountoModule } from 'angular2-counto';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +22,10 @@ import { LoginComponent } from './login/login.component';
 import { DonationComponent } from './donation/donation.component';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
+import { TonesCounter } from './tones-counter';
+import { UsersCounter } from './users-counter';
+import { DonationsCounter } from './donations-counter';
+
 
 @NgModule({
   declarations: [
@@ -34,14 +39,18 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     DonationComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    TonesCounter,
+    UsersCounter,
+    DonationsCounter
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    CountoModule
   ],
   providers: [
     {
