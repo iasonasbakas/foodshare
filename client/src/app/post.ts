@@ -5,7 +5,7 @@ export class Post {
     location: string;
     description: string;
     product: number;
-    product_photo: string;
+    product_photo: string[];
     upload_date: string;
     expiration_date: string;
     time: string;

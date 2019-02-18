@@ -8,32 +8,38 @@ h1 {
 }
 
 #lp {
- background-color: #f8f9fa;
- width: 100vw;
- position: relative;
- margin-left: -50vw;
- height: 580px;
- margin-top: 50px;
- left: 50%;
-}
-
-#counters {
  background-color: #ffff;
  width: 100vw;
  position: relative;
  margin-left: -50vw;
- height: 180px;
+ height: 580px;
+ margin-top: 40px;
  left: 50%;
 }
 
-#about {
+#counters {
  background-color: #f8f9fa;
  width: 100vw;
  position: relative;
  margin-left: -50vw;
- height: 400px;
- margin-top: 50px;
+ height: 230px;
  left: 50%;
+}
+
+#about {
+ background-color: #ffff;
+ width: 100vw;
+ position: relative;
+ margin-left: -50vw;
+ height: 400px;
+ margin-top: 20px;
+ left: 50%;
+}
+
+.pos {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 
@@ -51,8 +57,9 @@ h1 {
 }
 
 .counter {
-    background-color:#ffff;
+    background-color:#f8f9fa;
     padding: 20px 0;
+    padding-bottom: 40px;
     border-radius: 5px;
 }
 
@@ -77,4 +84,23 @@ h1 {
     float: none;
     display: table;
     color: #007bff;
+}
+
+.scroll-to-top {
+ position: fixed;
+ bottom: 15px;
+ right: 15px;
+ opacity: 0;
+ transition: all .2s ease-in-out;
+}
+.show-scrollTop {
+ opacity: 1;
+ transition: all .2s ease-in-out;
+}
+
+.fa-angle-double-up {
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.2em 0.4em; 
 }
