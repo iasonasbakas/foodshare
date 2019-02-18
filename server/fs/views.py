@@ -1,5 +1,5 @@
-from .models import Post, User, Profile
-from .serializers import PostSerializer, ProfileSerializer
+from .models import Post, User, Profile, Donation, Product
+from .serializers import PostSerializer, ProfileSerializer, DonationSerializer, ProductSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 
@@ -44,21 +44,21 @@ class PostList(generics.ListCreateAPIView):
         return queryset
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PostSerializer
     queryset = Post.objects.all()
-    serializer_class = PostSerializer
 
-class PostCreate(generics.CreateAPIView):
-    serializer_class = PostSerializer
-
-    def perform_create(self, serializer):
-        serializer.save(post=self.request.post)
+class ProfileList(generics.ListCreateAPIView):
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
 
-class ProfileCreate(generics.CreateAPIView):
-     serializer_class = ProfileSerializer
-
-     def perform_create(self, serializer):
-         serializer.save(user=self.request.user)
+class DonationList(generics.ListCreateAPIView):
+    serializer_class = DonationSerializer
+    queryset = Donation.objects.all()
+    
+class DonationDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = DonationSerializer
+    queryset = Donation.objects.all()

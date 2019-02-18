@@ -1,3 +1,19 @@
-<p>
-  donation works!
-</p>
+<form>
+  <div class="container">
+    <h2 class="text-center"><strong>Make a Donation</strong></h2>
+    <div class="row">
+        <input #user placeholder="Username" id="username" type="text" required>
+        <input #name placeholder="Name" id="name" type="text" required>
+    </div>
+    <div class="row">
+        <input #duration placeholder="Duration" id="duration" type="text" required>
+        <input #amount placeholder="Amount" id="amount" type="text" required>
+    </div>
+    <div class="row">
+
+        <input #message placeholder="Message" id="message" type="text" required>
+    </div>
+    <button (click)="add(user.value, name.value, amount.value, duration.value, message.value)"
+            type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </form>

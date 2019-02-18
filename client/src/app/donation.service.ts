@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { MessageService } from './message.service';
-import { User } from './user';
+import { Donation } from './donation';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,32 +15,31 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class DonationService {
 
-  private usersUrl = 'api/user/'
-  private registerUrl = 'api/register/'
+  private donationCreateUrl = 'api/donations/create';
+  private donationsUrl = 'api/donations';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-
-  getUser(id: number): Observable<User> {
-    const url = `${this.usersUrl}/${id}`;
-    return this.http.get<User>(url).pipe(
-      tap(_ => this.log(`fetched user id=${id}`)),
-      catchError(this.handleError<User>(`getUser id=${id}`))
+  getDonation(id: number): Observable<Donation> {
+    const url = `${this.donationsUrl}/${id}`;
+    return this.http.get<Donation>(url).pipe(
+      tap(_ => this.log(`fetched donation id=${id}`)),
+      catchError(this.handleError<Donation>(`getDonation id=${id}`))
     );
   }
 
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.registerUrl, user , httpOptions).pipe(
-      tap((user: User) => this.log(`added user w/ id=${user.id}`)),
-      catchError(this.handleError<User>('addUser'))
+  addDonation (donation: Donation): Observable<Donation> {
+    return this.http.post<Donation>(this.donationCreateUrl, donation , httpOptions).pipe(
+      tap((donation: Donation) => this.log(`added donation w/ id=${donation.id}`)),
+      catchError(this.handleError<Donation>('addDonation'))
     );
   }
 
   private log(message: string): void {
-    this.messageService.add('Postervice: ' + message);
+    this.messageService.add('DonationService: ' + message);
   }
 
   /**
@@ -62,5 +61,6 @@ private handleError<T> (operation = 'operation', result?: T) {
     return of(result as T);
   };
 }
+
 
 }

@@ -38,7 +38,6 @@ class Donation(models.Model):
 	amount = models.FloatField()
 	date = models.DateField(auto_now_add=True)
 	time = models.TimeField(auto_now_add=True)
-	donation_type = models.BooleanField()
 	duration = models.IntegerField()
 	message = models.CharField(max_length=100)
 

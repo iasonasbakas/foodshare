@@ -98,7 +98,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         username = validated_data['username']
-        email = validated_data['email']
+        email = validated_data['email'].lower()
         password = validated_data['password']
         first_name = validated_data['first_name']
         last_name = validated_data['last_name']
@@ -120,19 +120,15 @@ class DonationSerializer(serializers.ModelSerializer):
         user = validated_data['user']
         name = validated_data['name']
         amount = validated_data['amount']
-        date = validated_data['date']
-        time = validated_data['time']
-        donation_type = validated_data['donation_type']
         duration = validated_data['duration']
         message = validated_data['message']
-        donation = Donation(user=user, name=name, amount=amount, date=date, time=time,
-                    donation_type=donation_type, duration=duration, message=message)
+        donation = Donation(user=user, name=name, amount=amount, duration=duration, message=message)
         donation.save()
         return validated_data
 
     class Meta:
         model = Donation
-        fields = ('id', 'user', 'name', 'amount', 'date', 'time', 'donation_type', 'duration', 'message')
+        fields = ('id', 'user', 'name', 'amount', 'duration', 'message')
 
 class RatingSerializer(serializers.ModelSerializer):
 
@@ -143,6 +139,7 @@ class RatingSerializer(serializers.ModelSerializer):
         rating = Rating(post=post, rating=rating, description=description)
         rating.save()
         return validated_data
+
     class Meta:
         model = Rating
         fields = ('post', 'rating', 'description')
@@ -156,6 +153,7 @@ class ProductSerializer(serializers.ModelSerializer):
         product = Product(name=name, description=description, price=price)
         product.save()
         return validated_data
+
     class Meta:
         model = Product
         fields = ('name', 'description', 'price')
