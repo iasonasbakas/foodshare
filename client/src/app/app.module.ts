@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountoModule } from 'angular2-counto';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +26,11 @@ import { UserComponent } from './user/user.component';
 import { TonesCounter } from './tones-counter';
 import { UsersCounter } from './users-counter';
 import { DonationsCounter } from './donations-counter';
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { AboutComponent } from './about/about.component';
+import { BusinessesComponent } from './businesses/businesses.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { ContentBox } from './content-box';
 
 
 @NgModule({
@@ -42,7 +48,12 @@ import { DonationsCounter } from './donations-counter';
     UserComponent,
     TonesCounter,
     UsersCounter,
-    DonationsCounter
+    DonationsCounter,
+    VolunteerComponent,
+    AboutComponent,
+    BusinessesComponent,
+    FaqsComponent,
+    ContentBox
   ],
   imports: [
     BrowserModule,
@@ -50,7 +61,8 @@ import { DonationsCounter } from './donations-counter';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    CountoModule
+    CountoModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

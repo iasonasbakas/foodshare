@@ -1,4 +1,62 @@
 <div class="container">
+  <span [ngSwitch]="auth.isLoggedIn">
+  <span *ngSwitchCase="true">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white">
+    <a class="navbar-brand" href="#" routerLink="/home"><img src="/../../assets/img/logo3.png"></a>
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/posts"
+             href="#">EXPLORE</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/donation"
+             href="#">DONATE</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/messages"
+             href="#">MESSAGES</a>
+        </li>
+        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active" style="display: block; width:150px; height:auto;">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              <img style="max-width: 20%; height: auto;" class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg">
+                gkodosis
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu">
+              <a class="dropdown-item"
+                routerLink="/user"
+                href="#">PROFILE</a>
+              <a class="dropdown-item"
+                routerLink="/login"
+                href="#">LOGOUT</a>
+            </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+        	<form class="search">
+  				<div class="search__wrapper">
+    				<input type="text" name="" placeholder="Search for..." class="search__field">
+    					<button type="submit" class="fa fa-search search__icon"></button>
+ 				  </div>
+			   </form>
+        </li>        
+      </ul>
+    </div>
+  </nav>
+  </span>
+  <span *ngSwitchCase="false">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white">
     <a class="navbar-brand" href="#" routerLink="/home"><img src="/../../assets/img/logo3.png"></a>
     <button class="navbar-toggler"
@@ -21,18 +79,28 @@
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
-             routerLink="/posts"
-             href="#">EXPLORE</a>
+             routerLink="/about"
+             href="#">ABOUT</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/volunteer"
+             href="#">VOLUNTEER</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/businesses"
+             href="#">BUSINESSES</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="/faqs"
+             href="#">FAQS</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/donation"
              href="#">DONATE</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
-             routerLink="/user"
-             href="#">PROFILE</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="btn btn-primary text-white shadow"
@@ -42,20 +110,21 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="btn btn-outline-primary"
              routerLink="/login"
-             href="#">
-            {{ auth.isLoggedIn ? 'LOGOUT' : 'LOGIN' }}</a>
+             href="#">LOGIN</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-        	<form class="search">
-  				<div class="search__wrapper">
-    				<input type="text" name="" placeholder="Search for..." class="search__field">
-    					<button type="submit" class="fa fa-search search__icon"></button>
- 				</div>
-			</form>
+          <form class="search">
+          <div class="search__wrapper">
+            <input type="text" name="" placeholder="Search for..." class="search__field">
+              <button type="submit" class="fa fa-search search__icon"></button>
+        </div>
+      </form>
         </li>        
       </ul>
     </div>
   </nav>
+  </span>
+</span>
   
   <router-outlet></router-outlet>
 </div>

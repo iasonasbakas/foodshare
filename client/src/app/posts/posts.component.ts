@@ -4,6 +4,8 @@ import { Post } from '../post';
 import { PostService } from '../post.service';
 import { Identifiers } from '@angular/compiler';
 import { User } from '../user';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-posts',
@@ -15,7 +17,7 @@ export class PostsComponent implements OnInit {
 
   posts : Post[];
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private auth: AuthService) { }
 
   ngOnInit() {
     this.getPosts();

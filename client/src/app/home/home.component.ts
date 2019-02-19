@@ -6,6 +6,7 @@ import { Post } from '../post';
 import { TonesCounter } from '../tones-counter';
 import { UsersCounter } from '../users-counter';
 import { DonationsCounter } from '../donations-counter';
+import { ContentBox } from '../content-box';
 
 
 @Component({
