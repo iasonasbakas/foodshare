@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
+import * as jwt_decode from 'jwt-decode';
+
 class Credentials {
   constructor(public username: string, public password: string) {
 
@@ -55,6 +57,13 @@ export class AuthService {
     this.isLoggedIn = false;
     localStorage.removeItem('foodshare-jwt-access-token');
     localStorage.removeItem('foodshare-jtw-refresh-token');
+  }
+
+  getUserId() : number {
+    var token = localStorage.getItem('foodshare-jwt-access-token');
+    const decoded = jwt_decode(token);
+    const id = decoded.user_id;
+    return id;
   }
 
 }

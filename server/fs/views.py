@@ -58,7 +58,7 @@ class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
 class DonationList(generics.ListCreateAPIView):
     serializer_class = DonationSerializer
     queryset = Donation.objects.all()
-    
+
 class DonationDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DonationSerializer
     queryset = Donation.objects.all()

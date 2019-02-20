@@ -5,6 +5,8 @@ import { PostService } from '../post.service';
 import { Identifiers } from '@angular/compiler';
 import { User } from '../user';
 import { AuthService } from '../auth.service';
+import { tokenKey } from '@angular/core/src/view';
+
 
 
 @Component({
@@ -14,6 +16,8 @@ import { AuthService } from '../auth.service';
 })
 
 export class PostsComponent implements OnInit {
+
+  userId = this.auth.getUserId()
 
   posts : Post[];
 
@@ -28,14 +32,13 @@ export class PostsComponent implements OnInit {
       .subscribe(posts => this.posts = posts);
   }
 
-  add(id: number, user: number, location: string, description: string, product: number,  product_photo: string,
-        upload_date: string, expiration_date: string, time: string ): void {
+  add(user: number, location: string, description: string, product: number,  product_photo: string, expiration_date: string): void {
 
     description = description.trim();
     location = location.trim();
 
     if (!description || !location || !expiration_date || !product || !user) { return; }
-    this.postService.addPost({ description, location, expiration_date, upload_date, product_photo, user, product, id, time } as Post)
+    this.postService.addPost({ user, location, description, product, product_photo, expiration_date } as Post)
       .subscribe(post => {
         if (post) {
           this.posts.push(post);
