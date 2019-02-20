@@ -48,9 +48,9 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
 
 
 .btn-primary {
-	background-color: #0e6252;
-	border-color: #0e6252;
-    box-shadow: 0px 0px 14px 0px #dee2e6;
+	background-color: rgba(0,166,156,1);
+	border-color: rgba(0,166,156,1);
+  box-shadow: 0px 0px 14px 0px #dee2e6;
 }
 
 button.btn.btn-primary {

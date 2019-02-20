@@ -12,6 +12,10 @@ import { AboutComponent } from './about/about.component';
 import { BusinessesComponent } from './businesses/businesses.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
+import { VisionComponent } from './vision/vision.component';
+import { TeamComponent } from './team/team.component';
+import { SupportComponent } from './support/support.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,7 +29,10 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'businesses', component: BusinessesComponent },
   { path: 'faqs', component: FaqsComponent},
-  { path: 'volunteer', component: VolunteerComponent}
+  { path: 'volunteer', component: VolunteerComponent},
+  { path: 'about/vision', component: VisionComponent },
+  { path: 'about/team', component: TeamComponent },
+  { path: 'about/support', component: SupportComponent }
 ];
 
 @NgModule({

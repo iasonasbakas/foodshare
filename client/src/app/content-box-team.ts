@@ -3,11 +3,12 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 
 @Component({
-  selector: 'content-box',
-  template: `<div class="box" [@scrollAnimation]="state">
-                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/posts.png">
-                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/nav.png">
-                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/messaging.png">
+  selector: 'content-box-team',
+  template: `<div class="container" [@scrollAnimation]="state">
+                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/gk.png">
+                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/vgo.jpg">
+                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/naf.png">
+                <img style="width: 25%; padding-left: 60px;" src="../../assets/img/bak.png">
               </div>`,
   animations: [
     trigger('scrollAnimation', [
@@ -20,12 +21,12 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         transform: "translateX(-100%)"
       })),
       transition('show => hide', animate('100ms ease-out')),
-      transition('hide => show', animate('1200ms ease-in'))
+      transition('hide => show', animate('1000ms ease-in'))
     ])
   ]
 })
 
-export class ContentBox {
+export class ContentBoxTeam {
 
   state = 'hide'
 

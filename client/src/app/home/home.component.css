@@ -28,15 +28,15 @@ h1 {
 
 .btn-primary {
     color: #fff;
-    background-color: #1fa53d;
-    border-color: #1fa53d;
+    background-color: rgba(0,166,156,1);
+    border-color: rgba(0,166,156,1);
 }
 
 .btn-outline-primary {
-    color: #1fa53d;
+    color: rgba(0,166,156,1);
     background-color: transparent;
     background-image: none;
-    border-color: #1fa53d;
+    border-color: rgba(0,166,156,1);
 }
 
 .counter {

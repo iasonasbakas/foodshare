@@ -31,6 +31,10 @@ import { AboutComponent } from './about/about.component';
 import { BusinessesComponent } from './businesses/businesses.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { ContentBox } from './content-box';
+import { VisionComponent } from './vision/vision.component';
+import { TeamComponent } from './team/team.component';
+import { SupportComponent } from './support/support.component';
+import { ContentBoxTeam } from './content-box-team';
 
 
 @NgModule({
@@ -53,7 +57,11 @@ import { ContentBox } from './content-box';
     AboutComponent,
     BusinessesComponent,
     FaqsComponent,
-    ContentBox
+    ContentBox,
+    VisionComponent,
+    TeamComponent,
+    SupportComponent,
+    ContentBoxTeam
   ],
   imports: [
     BrowserModule,
