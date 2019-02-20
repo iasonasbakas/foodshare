@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private usersUrl = 'api/user/'
+  private usersUrl = 'api/users'
   private registerUrl = 'api/register/'
 
   constructor(private http: HttpClient,

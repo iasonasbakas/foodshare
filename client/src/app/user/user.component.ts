@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { UserService }  from '../user.service';
+import {AuthService} from '../auth.service';
 
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
@@ -18,15 +19,17 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private location: Location
+    private auth: AuthService,
   ) { }
+
+  userId = this.auth.getUserId()
 
   ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.userId;
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
   }

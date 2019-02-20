@@ -12,4 +12,6 @@ urlpatterns = [
     re_path(r'^donations/create/?$', views.DonationList.as_view()),
     re_path(r'^donations/?$', views.DonationList.as_view()),
     re_path(r'^donations/(?P<pk>\d+)/?$', views.DonationDetail.as_view()),
+    re_path(r'^users/?$', views.ProfileList.as_view()),
+    re_path(r'^users/(?P<pk>\d+)/?$', views.ProfileDetail.as_view()),
 ]
