@@ -1,0 +1,27 @@
+#lp {
+ background-color: #ffff;
+ width: 100vw;
+ position: relative;
+ margin-left: -50vw;
+ height: 360px;
+ margin-top: 1px;
+ left: 50%;
+ text-align: center;
+}
+
+.container {
+  padding-top: 0rem;
+  padding-bottom: 2rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+    box-shadow: 8px 11px 6px 0px #e9ecef;
+}
+
+ul {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
