@@ -19,6 +19,7 @@ const httpOptions = {
 export class PostService {
 
   private postsUrl = 'api/posts';
+  private postsCreateUrl = 'api/posts/create'
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -42,7 +43,7 @@ export class PostService {
 
   /** POST: add a new post to the server */
   addPost (post: Post): Observable<Post> {
-    return this.http.post<Post>(this.postsUrl, post , httpOptions).pipe(
+    return this.http.post<Post>(this.postsCreateUrl, post , httpOptions).pipe(
       tap((post: Post) => this.log(`added post w/ id=${post.id}`)),
       catchError(this.handleError<Post>('addPost'))
     );

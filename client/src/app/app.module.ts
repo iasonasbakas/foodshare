@@ -35,6 +35,7 @@ import { VisionComponent } from './vision/vision.component';
 import { TeamComponent } from './team/team.component';
 import { SupportComponent } from './support/support.component';
 import { ContentBoxTeam } from './content-box-team';
+import { NewPostComponent } from './new-post/new-post.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ContentBoxTeam } from './content-box-team';
     VisionComponent,
     TeamComponent,
     SupportComponent,
-    ContentBoxTeam
+    ContentBoxTeam,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

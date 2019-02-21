@@ -6,7 +6,4 @@ export class User {
     password: string;
     first_name: string;
     last_name: string;
-    location: string;
-    photo: string;
-
 }

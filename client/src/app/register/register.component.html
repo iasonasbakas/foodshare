@@ -6,18 +6,13 @@
       <input #last_name placeholder="Last Name" id="last_name" type="text" required>
   </div>
   <div class="row">
-      <input #email placeholder="Email" id="email" type="email" required>
-      <input #location placeholder="City" id="location" type="text" required>
-  </div>
-  <div class="row">
       <input #username placeholder="Username" id="username" type="username" required>
       <input #password placeholder="Password" id="password" type="password" required>
   </div>
   <div class="row">
-      <input #photo placeholder="Photo" id="photo" type="text" required>
-  </div>
-  <button (click)="add(username.value, email.value, password.value, first_name.value,
-                        last_name.value, location.value, photo.value)"
-          type="submit" class="btn btn-primary">Submit</button>    
+        <input #email placeholder="Email" id="email" type="email" required>
+    </div>
+  <button (click)="add(username.value, email.value, password.value, first_name.value, last_name.value)"
+          type="submit" class="btn btn-primary">Submit</button>
 </div>
 </form>

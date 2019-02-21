@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()" #reviewForm="ngForm">
+  <div class="container">
+    <h2 class="text-center"><strong>Add a new Post</strong></h2>
+    <div class="row">
+        <input placeholder="Location" id="location" name="location" type="text" [(ngModel)]="post.location" required>
+        <input placeholder="Description" id="description" name="description" type="text" [(ngModel)]="post.description" required>
+        <input placeholder="Time" id="time" name="time" type="text" [(ngModel)]="post.time" required>
+    </div>
+    <div class="row">
+        <input placeholder="Product" id="product" name="product" type="text" [(ngModel)]="post.product" required>
+        <input placeholder="Upload Date" id="upload_date" name="upload_date" type="text" [(ngModel)]="post.upload_date" required>
+        <input placeholder="Expiration Date" id="expiration_date" name="expiration_date" type="text" [(ngModel)]="post.expiration_date" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

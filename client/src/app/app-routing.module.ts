@@ -18,12 +18,14 @@ import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VisionComponent } from './vision/vision.component';
 import { TeamComponent } from './team/team.component';
 import { SupportComponent } from './support/support.component';
+import { NewPostComponent } from './new-post/new-post.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailComponent },
+  { path: 'newpost', component: NewPostComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'donation', component: DonationComponent },

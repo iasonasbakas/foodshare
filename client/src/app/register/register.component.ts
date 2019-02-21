@@ -17,18 +17,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(username: string, email: string, password: string,
-    first_name: string, last_name: string, location: string, photo: string): void {
+  add(username: string, email: string, password: string, first_name: string, last_name: string): void {
 
     username = username.trim();
     email = email.trim();
     first_name = first_name.trim();
     last_name = last_name.trim();
-    location = location.trim();
-    photo = photo.trim();
 
-    if(!first_name || !last_name || !email || !username || !password || !location || !photo) { return };
-      this.userService.addUser({ username, email, password, first_name, last_name, location, photo} as User)
+    if(!first_name || !last_name || !email || !username || !password) { return };
+      this.userService.addUser({ username, email, password, first_name, last_name} as User)
         .subscribe( user => {
           if (user) {
             this.users.push(user);
