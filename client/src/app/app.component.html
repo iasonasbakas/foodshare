@@ -1,7 +1,7 @@
 <div class="container">
   <span [ngSwitch]="auth.isLoggedIn">
   <span *ngSwitchCase="true">
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white" style="z-index: 1;">
     <a class="navbar-brand" href="#" routerLink="/home"><img src="/../../assets/img/logo3.png"></a>
     <button class="navbar-toggler"
             type="button"
@@ -57,7 +57,7 @@
   </nav>
   </span>
   <span *ngSwitchCase="false">
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white" style="z-index: 1;">
     <a class="navbar-brand" href="#" routerLink="/home"><img src="/../../assets/img/logo3.png"></a>
     <button class="navbar-toggler"
             type="button"

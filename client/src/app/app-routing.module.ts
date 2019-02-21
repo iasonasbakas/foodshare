@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { NgxBraintreeModule } from 'ngx-braintree';
+import { HttpClientModule } from '@angular/common/http';
+
 import { PostsComponent } from './posts/posts.component';
 import { HomeComponent } from './home/home.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
@@ -36,7 +39,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes), NgxBraintreeModule, HttpClientModule ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Donation } from '../donation';
 import { DonationService } from '../donation.service';
 
+import { NgxBraintreeModule } from 'ngx-braintree';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-donation',
   templateUrl: './donation.component.html',
@@ -17,7 +20,7 @@ export class DonationComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(user: string, name: string, amount: number, duration: number, message: string): void {
+  /*add(user: string, name: string, amount: number, duration: number, message: string): void {
 
     user = user.trim();
     name = name.trim();
@@ -30,7 +33,6 @@ export class DonationComponent implements OnInit {
             this.donations.push(donation);
           }
         });
-    }
-
+    }*/
 
 }
