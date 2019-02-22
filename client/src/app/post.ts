@@ -2,12 +2,9 @@ export class Post {
 
     id: number;
     user: number;
-    location: string;
-    description: string;
     product: number;
-    product_photo: string;
-    upload_date: string;
+    description: string;
+    location: string;
+    upload_date: Date;
     expiration_date: string;
-    time: string;
-
 }

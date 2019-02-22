@@ -4,6 +4,7 @@ import { Post } from '../post';
 import { PostService } from '../post.service';
 
 import { AuthService } from '../auth.service';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-new-post',
@@ -27,11 +28,12 @@ export class NewPostComponent implements OnInit {
   newPost(userId: number): Post {
     var post = new Post();
     post.user = userId;
+    post.product = 2;
     post.description = '';
-    post.product = 1;
-    post.description = '';
-    post.expiration_date = '';
     post.location = '';
+    post.upload_date = new Date();
+    post.expiration_date = '';
+
     return post;
   }
 
@@ -39,7 +41,6 @@ export class NewPostComponent implements OnInit {
     this.postService.addPost(this.post)
       .subscribe(post => {
         if (post) {
-          this.posts.unshift(post);
           this.post = this.newPost(post.user)
         }
       })

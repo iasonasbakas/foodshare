@@ -27,17 +27,14 @@ class PostSerializer(serializers.ModelSerializer):
         description = validated_data['description']
         location = validated_data['location']
         upload_date = validated_data['upload_date']
-        time = validated_data['time']
         expiration_date = validated_data['expiration_date']
-        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date,
-                    time=time, expiration_date= expiration_date)
+        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date, expiration_date= expiration_date)
         post.save()
         return validated_data
 
     class Meta:
         model = Post
-        fields = ('id', 'user', 'product', 'description',
-        		  'location', 'upload_date', 'time', 'expiration_date', 'product_photo')
+        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date')
 
 class UserSerializer(serializers.ModelSerializer):
 

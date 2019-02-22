@@ -1,4 +1,4 @@
-<div class="page-header header-filter" data-parallax="true"></div>
+<div *ngIf="user" class="page-header header-filter" data-parallax="true"></div>
     <div class="main main-raised">
 		<div class="profile-content">
             <div class="container">
@@ -10,7 +10,7 @@
 	                            <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
 	                        </div>
 	                        <div class="name">
-	                            <h3 class="title">Christian Louboutin</h3>
+	                            <h3 class="title">{{user.first_name}}&nbsp;{{user.last_name}}</h3>
 	                        </div>
 	                    </div>
     	            </div>
@@ -22,13 +22,13 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
                                   <i class="material-icons">camera</i>
-                                  Studio
+                                  {{user.email}}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#works" role="tab" data-toggle="tab">
                                   <i class="material-icons">palette</i>
-                                    Work
+                                    {{user.username}}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -41,7 +41,7 @@
                         </div>
     	    	</div>
             </div>
-        
+
           <div class="tab-content tab-space">
             <div class="tab-pane active text-center gallery" id="studio">
   				<div class="row">

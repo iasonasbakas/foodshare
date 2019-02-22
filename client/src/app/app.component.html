@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+    <div *ngIf="user" class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
@@ -33,7 +33,7 @@
         <li ngbDropdown class="nav-item dropdown" routerLinkActive="active" style="display: block; width:150px; height:auto;">
             <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
               <img style="max-width: 20%; height: auto;" class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg">
-                gkodosis
+               {{user.username}}
             </a>
             <div ngbDropdownMenu class="dropdown-menu">
               <a class="dropdown-item"
@@ -51,7 +51,7 @@
     					<button type="submit" class="fa fa-search search__icon"></button>
  				  </div>
 			   </form>
-        </li>        
+        </li>
       </ul>
     </div>
   </nav>
@@ -119,12 +119,12 @@
               <button type="submit" class="fa fa-search search__icon"></button>
         </div>
       </form>
-        </li>        
+        </li>
       </ul>
     </div>
   </nav>
   </span>
 </span>
-  
+
   <router-outlet></router-outlet>
 </div>

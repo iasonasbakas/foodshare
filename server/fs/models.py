@@ -9,21 +9,18 @@ class Product(models.Model):
 	price = models.FloatField()
 
 class Post(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+	product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product')
 	description = models.CharField(max_length=100)
 	location = models.CharField(max_length=100)
-	upload_date = models.DateField('upload_date')
-	time = models.TimeField('time')
-	expiration_date = models.DateField('expiration_date')
-	product_photo = models.ImageField(null=True)
+	upload_date = models.DateTimeField('upload date')
+	expiration_date = models.DateField('expiration date')
 
 class Donation(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 	name = models.CharField(max_length=15, null=True)
 	amount = models.FloatField()
-	date = models.DateField(auto_now_add=True)
-	time = models.TimeField(auto_now_add=True)
+	date = models.DateField('date')
 	duration = models.IntegerField()
 	message = models.CharField(max_length=100)
 

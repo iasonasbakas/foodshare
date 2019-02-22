@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AuthService } from './auth.service';
+import { UserService } from './user.service';
+import { User } from './user';
 
 
 @Component({
@@ -12,7 +14,19 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'FoodShare';
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private userService: UserService) {}
 
-  
+  user: User
+
+  ngOnInit() {
+    this.getUser()
+  }
+
+  getUser(): void {
+    const id = this.auth.getUserId()
+    this.userService.getUser(id)
+      .subscribe(user => this.user = user);
+  }
+
+
 }

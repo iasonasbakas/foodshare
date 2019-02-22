@@ -5,7 +5,6 @@ export class Donation {
     name: string;
     amount: number;
     date: string;
-    time: string;
     duration: number;
     message: string;
 
