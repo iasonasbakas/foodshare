@@ -1,4 +1,4 @@
-<div class="App">
+    <div class="App">
       <aside class="sidebar">
         <section  *ngIf="!currentUser" class="join-chat">
           <h2>Join Chat</h2>
@@ -16,6 +16,7 @@
           </ul>
         </section>
       </aside>
+
       <main class="chat-window">
         <header class="chat-header">
           <h1>Chat</h1>
@@ -25,14 +26,33 @@
           <ul class="message-list">
             <li class="user-message" *ngFor="let message of messages">
               <span class="user-id">{{ message.senderId }}</span>
+              <img *ngIf="message.attachment"
+                class="image-attachment"
+                src="{{ message.attachment.link }}"
+                alt="{{ message.attachment.name }}"
+              />
               <span>{{ message.text }}</span>
             </li>
           </ul>
         </section>
         <footer class="chat-footer">
-          <form (ngSubmit)='sendMessage()'>
-            <input placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="message">
+          <div class="is-typing" *ngIf="usersWhoAreTyping.length > 0">
+            {{ usersWhoAreTyping.slice(0, 2).join(' and ') }} is typing..
+          </div>
+          <form class="message-form" #form (ngSubmit)='sendMessage()'>
+            <div>
+              <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="message" />
+              <button class="send-message" type="submit">Send</button>
+            </div>
+
+            <input
+            class="file-input"
+              type="file"
+              name="attachment"
+              accept="image/png, image/jpeg"
+              (change)="fileChangedHandler($event)"
+            />
           </form>
         </footer>
       </main>
-</div>
+    </div>
