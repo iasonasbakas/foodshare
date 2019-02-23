@@ -16,7 +16,7 @@ export class AppComponent {
 
   constructor(private auth: AuthService, private userService: UserService) {}
 
-  user: User
+  user: User;
 
   ngOnInit() {
     this.getUser()

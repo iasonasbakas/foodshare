@@ -19,6 +19,7 @@ export class UserService {
 
   private usersUrl = 'api/users'
   private registerUrl = 'api/register/'
+  private postsUrl = 'api/posts';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -32,10 +33,26 @@ export class UserService {
     );
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.postsUrl)
+      .pipe(
+        tap(_ => this.log('fetched users')),
+        catchError(this.handleError('getUsers', []))
+      );
+  }
+
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.registerUrl, user , httpOptions).pipe(
       tap((user: User) => this.log(`added user w/ id=${user.id}`)),
       catchError(this.handleError<User>('addUser'))
+    );
+  }
+
+  getPostUser(id: number): Observable<User> {
+    const url = `${this.postsUrl}/${id}`;
+    return this.http.get<User>(url).pipe(
+      tap(_ => this.log(`fetched user id=${id}`)),
+      catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
 

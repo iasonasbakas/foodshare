@@ -19,6 +19,7 @@ import { VisionComponent } from './vision/vision.component';
 import { TeamComponent } from './team/team.component';
 import { SupportComponent } from './support/support.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'volunteer', component: VolunteerComponent},
   { path: 'about/vision', component: VisionComponent },
   { path: 'about/team', component: TeamComponent },
-  { path: 'about/support', component: SupportComponent }
+  { path: 'about/support', component: SupportComponent },
+  { path: 'messages', component: ChatComponent },
 ];
 
 @NgModule({
