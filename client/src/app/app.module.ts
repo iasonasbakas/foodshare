@@ -37,6 +37,8 @@ import { SupportComponent } from './support/support.component';
 import { ContentBoxTeam } from './content-box-team';
 import { NewPostComponent } from './new-post/new-post.component';
 import { ChatComponent } from './chat/chat.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
+
 
 
 @NgModule({
@@ -65,7 +67,8 @@ import { ChatComponent } from './chat/chat.component';
     SupportComponent,
     ContentBoxTeam,
     NewPostComponent,
-    ChatComponent
+    ChatComponent,
+    ProductSearchComponent
   ],
   imports: [
     BrowserModule,

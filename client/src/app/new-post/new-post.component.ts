@@ -4,7 +4,7 @@ import { Post } from '../post';
 import { PostService } from '../post.service';
 
 import { AuthService } from '../auth.service';
-import { getLocaleDateTimeFormat } from '@angular/common';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-new-post',
@@ -13,35 +13,38 @@ import { getLocaleDateTimeFormat } from '@angular/common';
 })
 export class NewPostComponent implements OnInit {
 
-  userId = this.auth.getUserId()
-
   posts : Post[];
   post: Post;
 
-  constructor(private postService: PostService, private auth: AuthService) { }
+  constructor(private postService: PostService, private auth: AuthService, private productService: ProductService) { }
 
   ngOnInit() {
-    const userId = this.auth.getUserId()
-    this.post = this.newPost(userId);
+    const userId = this.auth.getUserId();
+    const productId = this.productId
+    this.post = this.newPost(userId, productId);
   }
 
-  newPost(userId: number): Post {
+  newPost(userId: number, productId: number): Post {
     var post = new Post();
     post.user = userId;
-    post.product = 2;
+    post.product = productId;
     post.description = '';
     post.location = '';
     post.upload_date = new Date();
     post.expiration_date = '';
-
     return post;
+  }
+
+  get productId(): number {
+    const id = this.productService.productId
+    return id;
   }
 
   onSubmit() : void {
     this.postService.addPost(this.post)
       .subscribe(post => {
         if (post) {
-          this.post = this.newPost(post.user)
+          this.post = this.newPost(post.user, post.product)
         }
       })
   }
