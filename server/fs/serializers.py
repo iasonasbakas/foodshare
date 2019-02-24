@@ -21,6 +21,10 @@ class PostSerializer(serializers.ModelSerializer):
         required=True
     )
 
+    image = serializers.ImageField(
+        required=True
+    )
+
     def create(self, validated_data):
         user = validated_data['user']
         product = validated_data['product']
@@ -28,13 +32,15 @@ class PostSerializer(serializers.ModelSerializer):
         location = validated_data['location']
         upload_date = validated_data['upload_date']
         expiration_date = validated_data['expiration_date']
-        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date, expiration_date= expiration_date)
+        image = validated_data['upload image']
+        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date,
+                     expiration_date= expiration_date, image=image)
         post.save()
         return validated_data
 
     class Meta:
         model = Post
-        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date')
+        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date', 'image')
 
 class UserSerializer(serializers.ModelSerializer):
 
