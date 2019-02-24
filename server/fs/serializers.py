@@ -8,6 +8,8 @@ from .models import Post, User, Donation, Rating, Product
 
 class PostSerializer(serializers.ModelSerializer):
 
+    user = serializers.StringRelatedField(many=False)
+
     description = serializers.CharField(
         required=True,
     )
@@ -53,6 +55,7 @@ class UserSerializer(serializers.ModelSerializer):
             validators=[UniqueValidator(queryset=User.objects.all())]
         )
     password = serializers.CharField(min_length=8)
+
     first_name = serializers.CharField(
         required=True,
         min_length=2
