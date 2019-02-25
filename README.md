@@ -20,3 +20,5 @@ Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) 
 ##### Postscript:
 ###### *This repository was created for educational purposes.*
 ###### *We are very thankful to Okeanos that provides us with all the hosting services.*
+
+`<git>`
