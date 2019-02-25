@@ -1,8 +1,6 @@
 # FoodShare Platform Implementation
 
-<p align="center"
-	<img src="http://foodshare.gr/img/ff.png">
-</p>
+![alt text](http://foodshare.gr/img/ff.png "FoodShare")
 
 ###### *This repository depicts a platform conducted by 2 students of the [Department of Management Science and Technology](https://www.dept.aueb.gr/en/dmst) (DMST) of the Athens University of Economics and Business (AUEB), for the self-titled assignment implemented in the context of the course "Internet and Cloud Application Development", under the supervision of professor [Mr. Panagiotis Louridas](https://github.com/louridas).*
 
