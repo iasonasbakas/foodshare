@@ -2,7 +2,7 @@ export class Post {
 
     id: number;
     user: number;
-    product: number;
+    product: string;
     description: string;
     location: string;
     upload_date: Date;

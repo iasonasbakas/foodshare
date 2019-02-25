@@ -37,7 +37,6 @@ import { SupportComponent } from './support/support.component';
 import { ContentBoxTeam } from './content-box-team';
 import { NewPostComponent } from './new-post/new-post.component';
 import { ChatComponent } from './chat/chat.component';
-import { ProductSearchComponent } from './product-search/product-search.component';
 
 
 
@@ -68,7 +67,6 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     ContentBoxTeam,
     NewPostComponent,
     ChatComponent,
-    ProductSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -3,10 +3,12 @@ from rest_framework.validators import UniqueValidator
 from django.core.exceptions import ValidationError
 import re
 
-from .models import Post, User, Donation, Rating, Product
+from .models import Post, User, Donation, Rating
 
 
 class PostSerializer(serializers.ModelSerializer):
+
+    user = serializers.StringRelatedField(many=False)
 
     description = serializers.CharField(
         required=True,
@@ -21,6 +23,10 @@ class PostSerializer(serializers.ModelSerializer):
         required=True
     )
 
+    image = serializers.ImageField(
+        required=True
+    )
+
     def create(self, validated_data):
         user = validated_data['user']
         product = validated_data['product']
@@ -28,13 +34,15 @@ class PostSerializer(serializers.ModelSerializer):
         location = validated_data['location']
         upload_date = validated_data['upload_date']
         expiration_date = validated_data['expiration_date']
-        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date, expiration_date= expiration_date)
+        image = validated_data['upload image']
+        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date,
+                     expiration_date= expiration_date, image=image)
         post.save()
         return validated_data
 
     class Meta:
         model = Post
-        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date')
+        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date', 'image')
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -47,6 +55,7 @@ class UserSerializer(serializers.ModelSerializer):
             validators=[UniqueValidator(queryset=User.objects.all())]
         )
     password = serializers.CharField(min_length=8)
+
     first_name = serializers.CharField(
         required=True,
         min_length=2
@@ -118,17 +127,3 @@ class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = ('id', 'post', 'rating', 'description')
-
-class ProductSerializer(serializers.ModelSerializer):
-
-    def create(self, validated_data):
-        name = validated_data['name']
-        description = validated_data['description']
-        price = validated_data['price']
-        product = Product(name=name, description=description, price=price)
-        product.save()
-        return validated_data
-
-    class Meta:
-        model = Product
-        fields = ('id', 'name', 'description', 'price')
