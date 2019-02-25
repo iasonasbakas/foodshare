@@ -23,7 +23,7 @@ Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) 
 
 # Installation
 
-### *Linux Environment*
+### *Linux Environment (Server Side)*
 
 > First clone the repository to your local machine
 
@@ -31,3 +31,121 @@ Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) 
 git clone https://github.com/iasonasbakas/foodshare-assignment.git
 ```
 
+> Navigate to directory
+
+```
+cd foodshare-assignment/server
+```
+
+> Install MySQL 
+
+```
+sudo apt-get install mysql-server
+```
+
+> Install python3 & pip3
+
+```
+sudo apt-get install python3
+sudo apt-get install pip3
+```
+
+> Sync python & pip
+
+```
+alias python=python3
+alias pip=pip3
+```
+
+> Initialize virtual environment
+
+```
+sudo apt install virtualenv
+pip install virtualenv
+source env/bin/activate
+```
+
+> Install Django Rest Framework & JWT
+
+```
+pip install django
+pip install djangorestframework
+pip install djangorestframework-jwt
+pip install djangorestframework-simplejwt
+```
+
+> MySQL Deployment
+
+###### *Execute commands as root*
+
+```
+sudo -i
+pip install mysql-python
+apt-get install python3-mysqldb libmysqlclient-dev python-dev
+```
+
+```
+sudo apt-get install mysql-server
+mysql -u root -p
+```
+
+###### *See site_config for password*
+
+
+```
+CREATE DATABASE djbr CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'djbr';
+
+GRANT ALL PRIVILEGES ON djbr.* TO 'djbr'@'localhost';
+
+FLUSH PRIVILEGES;
+```
+
+###### *or if possible straight-forward*
+
+```
+USE djbr;
+```
+
+> Apply Migrations
+
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+> Run Server 
+
+```
+python manage.py runserver
+```
+
+
+### *Linux Environment (Client Side)*
+
+> Navigate to client directory
+
+```
+cd foodshare-assignment/client
+```
+
+> Install Packages
+
+```
+npm install
+```
+
+> Install Angular Command Line
+
+```
+npm install -g @angular/cli
+ng config -g cli.warnings.versionMismatch false
+```
+
+> Run Client
+
+```
+ng serve
+```
