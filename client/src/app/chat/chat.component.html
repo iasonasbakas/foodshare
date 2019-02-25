@@ -3,7 +3,7 @@
         <section  *ngIf="!currentUser" class="join-chat">
           <h2>Join Chat</h2>
           <form (ngSubmit)="addUser()">
-            <input placeholder="Enter your username" type="text" name="username" [(ngModel)]="username" />
+            <input placeholder="Enter username. Hit Enter." type="text" name="username" [(ngModel)]="username" />
           </form>
         </section>
         <section class="online-members">
@@ -19,7 +19,7 @@
 
       <main class="chat-window">
         <header class="chat-header">
-          <h1>Chat</h1>
+          <h1>FoodShare Community Chat</h1>
           <span class="participants"></span>
         </header>
         <section class="chat-session">
