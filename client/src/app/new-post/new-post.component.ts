@@ -20,31 +20,26 @@ export class NewPostComponent implements OnInit {
 
   ngOnInit() {
     const userId = this.auth.getUserId();
-    const productId = this.productId
-    this.post = this.newPost(userId, productId);
+    this.post = this.newPost(userId);
   }
 
-  newPost(userId: number, productId: number): Post {
+  newPost(userId: number): Post {
     var post = new Post();
     post.user = userId;
-    post.product = productId;
+    post.product = null;
     post.description = '';
     post.location = '';
     post.upload_date = new Date();
     post.expiration_date = '';
+    post.image = '';
     return post;
-  }
-
-  get productId(): number {
-    const id = this.productService.productId
-    return id;
   }
 
   onSubmit() : void {
     this.postService.addPost(this.post)
       .subscribe(post => {
         if (post) {
-          this.post = this.newPost(post.user, post.product)
+          this.post = this.newPost(post.user)
         }
       })
   }

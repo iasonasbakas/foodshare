@@ -40,7 +40,6 @@ import { ChatComponent } from './chat/chat.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +67,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     ContentBoxTeam,
     NewPostComponent,
     ChatComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
   ],
   imports: [
     BrowserModule,

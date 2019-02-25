@@ -3,8 +3,7 @@ from rest_framework.validators import UniqueValidator
 from django.core.exceptions import ValidationError
 import re
 
-from .models import Post, User, Donation, Rating, Product
-
+from .models import Post, User, Donation, Rating
 
 class PostSerializer(serializers.ModelSerializer):
 
@@ -27,6 +26,10 @@ class PostSerializer(serializers.ModelSerializer):
         required=True
     )
 
+    avatar = serializers.ImageField(
+        required=True
+    )
+
     def create(self, validated_data):
         user = validated_data['user']
         product = validated_data['product']
@@ -35,14 +38,15 @@ class PostSerializer(serializers.ModelSerializer):
         upload_date = validated_data['upload_date']
         expiration_date = validated_data['expiration_date']
         image = validated_data['upload image']
+        avatar = validated_data['upload avatar']
         post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date,
-                     expiration_date= expiration_date, image=image)
+                     expiration_date= expiration_date, image=image, avatar=avatar)
         post.save()
         return validated_data
 
     class Meta:
         model = Post
-        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date', 'image')
+        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date', 'image', 'avatar')
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -127,17 +131,3 @@ class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = ('id', 'post', 'rating', 'description')
-
-class ProductSerializer(serializers.ModelSerializer):
-
-    def create(self, validated_data):
-        name = validated_data['name']
-        description = validated_data['description']
-        price = validated_data['price']
-        product = Product(name=name, description=description, price=price)
-        product.save()
-        return validated_data
-
-    class Meta:
-        model = Product
-        fields = ('id', 'name', 'description', 'price')

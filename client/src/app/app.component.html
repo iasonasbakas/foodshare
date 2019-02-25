@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div *ngIf="user" class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
@@ -30,9 +30,10 @@
              routerLink="/messages"
              href="#">MESSAGES</a>
         </li>
-        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active" style="display: block; width:150px; height:auto;">
+        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active" style="display: block; width:200px; height:auto;">
             <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              <img style="max-width: 20%; height: auto;" class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg">
+              <span *ngFor="let post of posts">
+              <img *ngIf="post.user === user.username" style="max-width: 20%; height: auto;" class="img-fluid rounded-circle" src="{{post.avatar}}"></span>
                {{user.username}}
             </a>
             <div ngbDropdownMenu class="dropdown-menu">

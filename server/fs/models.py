@@ -9,20 +9,15 @@ def scramble_uploaded_filename(instance, filename):
 	extension = filename.split(".")[-1]
 	return "{}.{}".format(uuid.uuid4(), extension)
 
-
-class Product(models.Model):
-	name = models.CharField(max_length=15)
-	description = models.CharField(max_length=100)
-	price = models.FloatField()
-
 class Post(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-	product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product')
+	product = models.CharField(max_length=100)
 	description = models.CharField(max_length=100)
 	location = models.CharField(max_length=100)
-	upload_date = models.DateTimeField('upload date')
+	upload_date = models.DateTimeField('upload date', auto_now=True)
 	expiration_date = models.DateField('expiration date')
 	image = models.ImageField(upload_to='img/', blank=True)
+	avatar = models.ImageField(upload_to='img/', blank=True)
 
 class Donation(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)

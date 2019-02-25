@@ -1,6 +1,5 @@
     <div class="container">
-      <div class="row" *ngFor="let post of posts" class="col-sm"
-           routerLink="/posts/{{post.id}}">
+      <div class="row" *ngFor="let post of posts" class="col-sm">
         <div class="column">
           <div class="col-lg-6 offset-lg-3" style="height: 50%">
 
@@ -9,23 +8,22 @@
             <div class="cardbox-heading">
               <div class="media m-0">
                 <div class="d-flex mr-3">
-                  <a href=""><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User"></a>
+                  <img *ngIf="post.avatar" class="img-fluid rounded-circle" src="{{post.avatar}}" alt="Image">
                 </div>
-              <div class="media-body">
-                <small><i class="icon ion-md-pin"></i>User: {{ post.user.username }}</small>
-                <br/>
-                <small><i class="icon ion-md-time"></i>Uploaded: {{ post.upload_date }}</small>
+                <div class="media-body">
+                  <i class="icon ion-md-pin"></i>{{ post.user }}
+                  <br/>
+                  <small><i class="icon ion-md-time"></i>{{ post.upload_date }}</small>
+                </div>
               </div>
             </div>
-          </div>
 
-            <div class="cardbox-item">
-              <img class="img-fluid" src="https://images.milkandmore.co.uk/image/upload/w_iw/f_auto/w_380,d_back_up_image.jpg,c_scale/v1/products/2004514_1.jpg"
-                   style="width: 100%" alt="Image">
+            <div class="cardbox-item" routerLink="/posts/{{post.id}}">
+              <img *ngIf="post.image" class="img-fluid" src="{{post.image}}" alt="Image" style="width: 395px; height: 395px;">
             </div>
             <div class="cardbox-base">
               <ul class="req">
-                <li><a href="#" routerLink="/register" class="btn btn-primary1 shadow mr-2">Request Item</a></li>
+                <li><a href="#" routerLink="/messages" class="btn btn-primary1 shadow mr-2">Request Item</a></li>
               </ul>
             </div>
             </div>

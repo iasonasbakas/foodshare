@@ -1,5 +1,5 @@
-from .models import Post, User, Donation, Product, Rating
-from .serializers import PostSerializer, UserSerializer, DonationSerializer, ProductSerializer, RatingSerializer
+from .models import Post, User, Donation, Rating
+from .serializers import PostSerializer, UserSerializer, DonationSerializer, RatingSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 
@@ -62,11 +62,3 @@ class DonationList(generics.ListCreateAPIView):
 class DonationDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DonationSerializer
     queryset = Donation.objects.all()
-
-class ProductList(generics.ListCreateAPIView):
-    serializer_class = ProductSerializer
-    queryset = Product.objects.all()
-
-class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = ProductSerializer
-    queryset = Product.objects.all()

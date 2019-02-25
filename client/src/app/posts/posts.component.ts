@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Post } from '../post';
-import { PostService } from '../post.service';
 import { UserService }  from '../user.service';
+import { PostService }  from '../post.service';
 import { AuthService } from '../auth.service';
 import { User } from '../user';
 
@@ -15,12 +15,14 @@ import { User } from '../user';
 export class PostsComponent implements OnInit {
 
   posts : Post[];
-  users: User[];
+  user: User;
 
-  constructor(private postService: PostService, private auth: AuthService, private userService: UserService) { }
+  constructor(private postService: PostService, private auth: AuthService,
+               private userService: UserService) { }
 
   ngOnInit() {
     this.getPosts();
+    this.getUser();
   }
 
   getPosts(): void {
@@ -33,8 +35,10 @@ export class PostsComponent implements OnInit {
     this.postService.deletePost(post).subscribe();
   }
 
-  getUsers(): void {
-    this.userService.getUsers()
-      .subscribe(users => this.users = users);
+  getUser(): void {
+    const id = this.auth.getUserId()
+    this.userService.getUser(id)
+      .subscribe(user => this.user = user);
   }
+
 }
