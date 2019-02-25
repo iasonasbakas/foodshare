@@ -30,11 +30,7 @@ export class NewPostComponent implements OnInit {
   newPost(userId: number): Post {
     var post = new Post();
     post.user = userId;
-<<<<<<< HEAD
     post.product = null;
-=======
-    post.product = '';
->>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022
     post.description = '';
     post.location = '';
     post.upload_date = new Date();
@@ -52,28 +48,4 @@ export class NewPostComponent implements OnInit {
       })
   }
 
-<<<<<<< HEAD
 }
-=======
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener('load', (event: any) => {
-
-      this.selectedFile = new ImageSnippet(event.target.result, file);
-
-      this.postService.uploadImage(this.selectedFile.file).subscribe(
-        (res) => {
-
-        },
-        (err) => {
-
-        })
-    });
-
-    reader.readAsDataURL(file);
-  }
-}
-
->>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022

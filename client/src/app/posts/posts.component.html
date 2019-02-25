@@ -13,20 +13,12 @@
                 <div class="media-body">
                   <i class="icon ion-md-pin"></i>{{ post.user }}
                   <br/>
-                  <small><i class="icon ion-md-time"></i>{{ post.upload_date }}</small>
+                  <small><i class="icon ion-md-time"></i>{{ post.location }}</small>
                 </div>
-<<<<<<< HEAD
-=======
-              <div class="media-body">
-                <small><i class="icon ion-md-pin"></i>User: {{ post.user}}</small>
-                <br/>
-                <small><i class="icon ion-md-time"></i>Uploaded: {{ post.upload_date }}</small>
->>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022
-              </div>
             </div>
 
             <div class="cardbox-item" routerLink="/posts/{{post.id}}">
-              <img *ngIf="post.image" class="img-fluid" src="{{post.image}}" alt="Image" style="width: 395px; height: 395px;">
+              <img *ngIf="post.image" class="img-fluid" src="{{post.image}}" alt="Image" style="width: 395px; height: 395px; margin-top: 2px; border: 1px solid #e9ecef;">
             </div>
             <div class="cardbox-base">
               <ul class="req">

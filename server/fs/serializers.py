@@ -4,16 +4,16 @@ from django.core.exceptions import ValidationError
 import re
 
 from .models import Post, User, Donation, Rating
-<<<<<<< HEAD
-=======
-
->>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022
 
 class PostSerializer(serializers.ModelSerializer):
 
     user = serializers.StringRelatedField(many=False)
 
     description = serializers.CharField(
+        required=True,
+    )
+
+    product = serializers.CharField(
         required=True,
     )
 
@@ -34,6 +34,10 @@ class PostSerializer(serializers.ModelSerializer):
         required=True
     )
 
+    info = serializers.CharField(
+        required=True
+    )
+
     def create(self, validated_data):
         user = validated_data['user']
         product = validated_data['product']
@@ -43,14 +47,16 @@ class PostSerializer(serializers.ModelSerializer):
         expiration_date = validated_data['expiration_date']
         image = validated_data['upload image']
         avatar = validated_data['upload avatar']
-        post = Post(user=user, product=product, description=description, location=location, upload_date=upload_date,
-                     expiration_date= expiration_date, image=image, avatar=avatar)
+        info = validated_data['informations']
+        post = Post(user=user, product=product, description=description, location=location,
+         upload_date=upload_date, expiration_date=expiration_date, image=image, avatar=avatar, info=info)
         post.save()
         return validated_data
 
     class Meta:
         model = Post
-        fields = ('id', 'user', 'product', 'description', 'location', 'upload_date', 'expiration_date', 'image', 'avatar')
+        fields = ('id', 'user', 'product', 'description', 'location',
+         'upload_date', 'expiration_date', 'image', 'avatar', 'info')
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -134,8 +140,4 @@ class RatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rating
-<<<<<<< HEAD
         fields = ('id', 'post', 'rating', 'description')
-=======
-        fields = ('id', 'post', 'rating', 'description')
->>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022

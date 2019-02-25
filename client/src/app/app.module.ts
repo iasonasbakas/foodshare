@@ -65,11 +65,7 @@ import { ChatComponent } from './chat/chat.component';
     SupportComponent,
     ContentBoxTeam,
     NewPostComponent,
-    ChatComponent,
-<<<<<<< HEAD
-    ProductSearchComponent,
-=======
->>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022
+    ChatComponent
   ],
   imports: [
     BrowserModule,

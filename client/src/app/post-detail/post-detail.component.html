@@ -1,16 +1,23 @@
 <div class="page-header header-filter" data-parallax="true"></div>
 	<div class="main main-raised">
 		<div class="details">
+			<a href="javascript:void(0)" (click)="goBack()">
+      			<i class="fa fa-long-arrow-left fa-2x" style="padding-top: 20px; 
+      			padding-right: 980px;"></i>
+			</a>
 			<br/>
-			<img class="product" src="https://images.milkandmore.co.uk/image/upload/w_iw/f_auto/w_380,d_back_up_image.jpg,c_scale/v1/products/2004514_1.jpg" alt="Image">
+			<img class="product" style="width: 25%;" src="{{post.image}}" alt="Image">
 			<br/>
-			<h2><strong>Milk</strong></h2>
-			<p>Details: 11 bottles of milk, 2% lipara</p>
+			<h2><strong>{{post.product}}</strong></h2>
+			<p>Details: {{ post.description }}</p>
 			<hr style="width: 30%;">
 			<div class="media">
-				<img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User">
-				<h5><strong>George Gerrard</strong></h5>
-				<p><i class="fa fa-quote-left"></i>  Hello there! I will be at my apartment around 8 am. Come pick it up!  <i class="fa fa-quote-right"></i></p>
+				<p><i class="fa fa-quote-left"></i>
+					{{ post.info }}
+				<i class="fa fa-quote-right"></i>
+				</p>
+				<img class="img-fluid rounded-circle" src="{{post.avatar}}" alt="User">
+				<h5><strong>{{user.firstname}}</strong></h5>
 				<br/>
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.2531389455903!2d-89.23024619999998!3d48.4516724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d5923dbfe697737%3A0xc9d925c9bc9573fa!2s116+Bruce+St%2C+Thunder+Bay%2C+ON+P7A+5W6!5e0!3m2!1sen!2sca!4v1424272264157" width="600" height="450" frameborder="0" style="border:0; margin-bottom: 30px;"></iframe>
 			</div>

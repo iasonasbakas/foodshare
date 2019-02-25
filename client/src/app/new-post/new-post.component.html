@@ -2,21 +2,20 @@
   <div class="container">
     <h2 class="text-center"><strong>Add a new Post</strong></h2>
     <div class="row">
-        <input placeholder="Location" id="location" name="location" type="text" [(ngModel)]="post.location" required>
-        <input placeholder="Description" id="description" name="description" type="text" [(ngModel)]="post.description" required>
+      <input placeholder="Product Type" id="product" name="product" type="text" [(ngModel)]="post.product" required>
+      <input placeholder="Product Description" id="description" name="description" type="text" [(ngModel)]="post.description" required>
     </div>
     <div class="row">
-      <input placeholder="Product" id="product" name="product" type="text" [(ngModel)]="post.product" required>
+      <input placeholder="Pick-up Location" id="location" name="location" type="text" 
+      [(ngModel)]="post.location" required>
       <input placeholder="Expiration Date" id="expiration_date" name="expiration_date" type="text" [(ngModel)]="post.expiration_date" required>
-      <input placeholder="Image" id="image" name="image" type="file" [(ngModel)]="post.image" required>
+      <input placeholder="Post's Image" id="image" name="image" type="file" 
+      [(ngModel)]="post.image" required>
+      <input placeholder="Profile Picture" id="image" name="image" type="file"
+       [(ngModel)]="post.image" required>
+     <input placeholder="Post Message" id="info" name="info" type="text"
+      [(ngModel)]="post.info" required>
     </div>
-    <label class="image-upload-container btn btn-bwm">
-      <span>Select Image</span>
-      <input [(ngModel)]="post.image"
-             type="file"
-             accept="image/*"
-             (change)="processFile(imageInput)">
-    </label>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" href="#" routerLink="/explore" class="btn btn-primary">Submit</button>
   </div>
 </form>
