@@ -163,3 +163,7 @@ ng serve
 ##### Postscript:
 ###### *This repository was created for educational purposes.*
 ###### *We are very thankful to Okeanos that provides us with all the hosting services.*
+
+<p align="center">
+  <img width="600" height="200" src="https://www.python.org/python-.png">
+</p>
