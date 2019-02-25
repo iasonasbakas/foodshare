@@ -165,5 +165,5 @@ ng serve
 ###### *We are very thankful to Okeanos that provides us with all the hosting services.*
 
 <p align="center">
-  <img width="600" height="200" src="http://foodshare.gr/img/ff.png">
+  <img width="230" height="168" src="http://foodshare.gr/img/ff.png">
 </p>
