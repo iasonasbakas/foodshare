@@ -7,12 +7,21 @@ Currently we are building our own startup with the aid of the Athens Center of E
 
 ### *Main Features:*
 
-* Real Time Posts
-* Food Search Based on Location
-* Profile Utilities: Ratings, Points Collection & Redemption
+* User's Authorization
+* Real-time posts
+* Connection with back-end for image deployment
+* Food search based on product you are searching for 
+* User's Profile
 * User's Communication - Messaging
-* Algorithmic Listings Allocation
-* Donations
+* Donations - Payment API
+
+### *Features on Progress:*
+
+* Private Chat Messaging
+* Real-time Location
+* Clear connection in posting images between front and back-end
+* Secure Payment
+* Ratings 
 
 ### *Hosting Service*
 Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) which is GRNET's cloud service for the Greek Research and Academic Community.
