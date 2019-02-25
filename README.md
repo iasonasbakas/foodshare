@@ -26,5 +26,6 @@ Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) 
 ### *Linux Environment*
 
 > First clone the repository to your local machine
+
 ```git clone https://github.com/iasonasbakas/foodshare-assignment.git```
 
