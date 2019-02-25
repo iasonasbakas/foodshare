@@ -4,7 +4,10 @@ import { Post } from '../post';
 import { PostService } from '../post.service';
 
 import { AuthService } from '../auth.service';
-import { ProductService } from '../product.service';
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
 
 @Component({
   selector: 'app-new-post',
@@ -15,8 +18,9 @@ export class NewPostComponent implements OnInit {
 
   posts : Post[];
   post: Post;
+  selectedFile: ImageSnippet;
 
-  constructor(private postService: PostService, private auth: AuthService, private productService: ProductService) { }
+  constructor(private postService: PostService, private auth: AuthService) { }
 
   ngOnInit() {
     const userId = this.auth.getUserId();
@@ -26,7 +30,11 @@ export class NewPostComponent implements OnInit {
   newPost(userId: number): Post {
     var post = new Post();
     post.user = userId;
+<<<<<<< HEAD
     post.product = null;
+=======
+    post.product = '';
+>>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022
     post.description = '';
     post.location = '';
     post.upload_date = new Date();
@@ -44,4 +52,28 @@ export class NewPostComponent implements OnInit {
       })
   }
 
+<<<<<<< HEAD
 }
+=======
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.postService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+
+        },
+        (err) => {
+
+        })
+    });
+
+    reader.readAsDataURL(file);
+  }
+}
+
+>>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022

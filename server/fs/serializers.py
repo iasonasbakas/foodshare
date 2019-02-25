@@ -4,6 +4,10 @@ from django.core.exceptions import ValidationError
 import re
 
 from .models import Post, User, Donation, Rating
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022
 
 class PostSerializer(serializers.ModelSerializer):
 
@@ -130,4 +134,8 @@ class RatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rating
+<<<<<<< HEAD
         fields = ('id', 'post', 'rating', 'description')
+=======
+        fields = ('id', 'post', 'rating', 'description')
+>>>>>>> 3b7def22ca31cbc46c876b8f04dc0685b86a3022

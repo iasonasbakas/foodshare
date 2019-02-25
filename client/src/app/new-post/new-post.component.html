@@ -6,10 +6,17 @@
         <input placeholder="Description" id="description" name="description" type="text" [(ngModel)]="post.description" required>
     </div>
     <div class="row">
-      <app-product-search></app-product-search>
+      <input placeholder="Product" id="product" name="product" type="text" [(ngModel)]="post.product" required>
       <input placeholder="Expiration Date" id="expiration_date" name="expiration_date" type="text" [(ngModel)]="post.expiration_date" required>
       <input placeholder="Image" id="image" name="image" type="file" [(ngModel)]="post.image" required>
     </div>
+    <label class="image-upload-container btn btn-bwm">
+      <span>Select Image</span>
+      <input [(ngModel)]="post.image"
+             type="file"
+             accept="image/*"
+             (change)="processFile(imageInput)">
+    </label>
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>

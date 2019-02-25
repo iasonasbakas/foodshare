@@ -1,7 +1,7 @@
 <div id="search-component">
 
   <ng-template #rt let-r="result" let-t="term">
-    <ngb-highlight [result]="r.location" [term]="t"></ngb-highlight>
+    <ngb-highlight [result]="r.product" [term]="t"></ngb-highlight>
   </ng-template>
 
 <form class="search">
@@ -19,9 +19,4 @@
          [ngbTypeahead]="search"
          [resultTemplate]="rt"
          [inputFormatter]="formatter"/>
-
-  <span *ngIf="searching">searching...</span>
-  <div class="alert alert-warning" *ngIf="searchFailed">
-    Sorry, suggestions could not be loaded.
-  </div>
 </div>

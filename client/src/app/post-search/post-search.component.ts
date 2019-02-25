@@ -7,7 +7,6 @@ import {
   debounceTime, distinctUntilChanged, switchMap, tap, catchError
  } from 'rxjs/operators';
 
-
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
@@ -45,8 +44,8 @@ export class PostSearchComponent {
       tap(() => {this.searching = false;})
     )
 
-  formatter(b: Post): string {
-    return b.location;
+  formatter(p: Post): string {
+    return p.product;
   }
 
   selectedItem(event) : void {

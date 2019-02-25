@@ -24,6 +24,17 @@ export class PostService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
+  public uploadImage(image: File): Observable<File> {
+    const formData = new FormData();
+
+    formData.append('image', image);
+
+    return this.http.post<File>('/api/img/', formData).pipe(
+      tap((image: File) => this.log(`added image`)),
+      catchError(this.handleError<File>('uploadImage'))
+    );
+  }
+
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl)
       .pipe(
@@ -75,7 +86,7 @@ export class PostService {
       // if not search term, return empty post array.
       return of([]);
     }
-    return this.http.get<Post[]>(`api/posts/?location=${term}`).pipe(
+    return this.http.get<Post[]>(`api/posts/?product=${term}`).pipe(
       tap(_ => this.log(`found posts matching "${term}"`)),
       catchError(this.handleError<Post[]>('searchPosts', []))
     );
