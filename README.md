@@ -1,5 +1,7 @@
 # FoodShare Platform Implementation
 
+[logo]: http://foodshare.gr/img/ff.png "FoodShare"
+
 ###### *This repository depicts a platform conducted by 2 students of the [Department of Management Science and Technology](https://www.dept.aueb.gr/en/dmst) (DMST) of the Athens University of Economics and Business (AUEB), for the self-titled assignment implemented in the context of the course "Internet and Cloud Application Development", under the supervision of professor [Mr. Panagiotis Louridas](https://github.com/louridas).*
 
 ### *The Project Selection*
@@ -8,6 +10,7 @@ Currently we are building our own startup with the aid of the Athens Center of E
 ### *Main Features:*
 
 * User's Authorization
+* Animations & Front-end design materials
 * Real-time posts
 * Connection with back-end for image deployment
 * Food search based on product you are searching for 
@@ -26,9 +29,6 @@ Currently we are building our own startup with the aid of the Athens Center of E
 ### *Hosting Service*
 Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) which is GRNET's cloud service for the Greek Research and Academic Community.
 
-##### Postscript:
-###### *This repository was created for educational purposes.*
-###### *We are very thankful to Okeanos that provides us with all the hosting services.*
 
 # Installation
 
@@ -158,3 +158,8 @@ ng config -g cli.warnings.versionMismatch false
 ```
 ng serve
 ```
+
+
+##### Postscript:
+###### *This repository was created for educational purposes.*
+###### *We are very thankful to Okeanos that provides us with all the hosting services.*
