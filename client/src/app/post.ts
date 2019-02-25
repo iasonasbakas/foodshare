@@ -7,4 +7,5 @@ export class Post {
     location: string;
     upload_date: Date;
     expiration_date: string;
+    image: string;
 }

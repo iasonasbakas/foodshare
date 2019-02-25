@@ -5,6 +5,10 @@ import { PostService } from '../post.service';
 
 import { AuthService } from '../auth.service';
 
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
+
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
@@ -14,6 +18,7 @@ export class NewPostComponent implements OnInit {
 
   posts : Post[];
   post: Post;
+  selectedFile: ImageSnippet;
 
   constructor(private postService: PostService, private auth: AuthService) { }
 
@@ -42,4 +47,24 @@ export class NewPostComponent implements OnInit {
       })
   }
 
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.postService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+
+        },
+        (err) => {
+
+        })
+    });
+
+    reader.readAsDataURL(file);
+  }
 }
+

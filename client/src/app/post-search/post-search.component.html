@@ -19,9 +19,4 @@
          [ngbTypeahead]="search"
          [resultTemplate]="rt"
          [inputFormatter]="formatter"/>
-
-  <span *ngIf="searching">searching...</span>
-  <div class="alert alert-warning" *ngIf="searchFailed">
-    Sorry, suggestions could not be loaded.
-  </div>
 </div>
