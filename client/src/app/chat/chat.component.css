@@ -30,7 +30,7 @@
     .sidebar {
       flex-basis: 30%;
       flex-shrink: 0;
-      background-color: #300d4f;
+      background-color: #0062ccd1;
       color: #fff;
       padding: 5px 10px;
     }
@@ -140,10 +140,10 @@
     }
 
     .send-message {
-      background-color: #300d4f;
+      background-color: #0062ccd1;
       color: #fff;
       border: 1px solid #300d4f;
-      padding: 10px;
+      padding: 5px;
     }
 
     .is-typing {

@@ -1,24 +1,82 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 
 import { Donation } from '../donation';
 import { DonationService } from '../donation.service';
-
-import { NgxBraintreeModule } from 'ngx-braintree';
 import { HttpClientModule } from '@angular/common/http';
+
+import {
+  AfterViewInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+  ChangeDetectorRef
+} from '@angular/core';
+
+declare var stripe: any;
+declare var elements: any;
+import { NgForm } from '@angular/forms';
+ 
 
 @Component({
   selector: 'app-donation',
   templateUrl: './donation.component.html',
   styleUrls: ['./donation.component.css']
 })
-export class DonationComponent implements OnInit {
+export class DonationComponent implements AfterViewInit, OnDestroy {
 
-  donations : Donation[] = [];
+@ViewChild('cardInfo') cardInfo: ElementRef;
 
-  constructor(private donationService: DonationService) { }
+  card: any;
+  cardHandler = this.onChange.bind(this);
+  error: string;
 
-  ngOnInit() {
+  constructor(private cd: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+
+   const style = {
+    base: {
+      lineHeight: '24px',
+      fontFamily: 'monospace',
+      fontSmoothing: 'antialiased',
+      fontSize: '19px',
+      '::placeholder': {
+        color: 'purple'
+      }
+    }
+   };
+
+    this.card = elements.create('card', {style});
+    this.card.mount(this.cardInfo.nativeElement);
+
+    this.card.addEventListener('change', this.cardHandler);
   }
+
+  ngOnDestroy() {
+    this.card.removeEventListener('change', this.cardHandler);
+    this.card.destroy();
+  }
+
+  onChange({ error }) {
+    if (error) {
+      this.error = error.message;
+    } else {
+      this.error = null;
+    }
+    this.cd.detectChanges();
+  }
+
+  async onSubmit(form: NgForm) {
+    const { token, error } = await stripe.createToken(this.card);
+
+    if (error) {
+      console.log('Something is wrong:', error);
+    } else {
+      console.log('Success!', token);
+      // ...send the token to the your backend to process the charge
+    }
+  }
+}
 
   /*add(user: string, name: string, amount: number, duration: number, message: string): void {
 
@@ -34,5 +92,3 @@ export class DonationComponent implements OnInit {
           }
         });
     }*/
-
-}

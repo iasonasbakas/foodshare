@@ -37,6 +37,7 @@
     "jwt-decode": "^2.2.0",
     "ng2-bootstrap": "^1.6.3",
     "ngx-braintree": "^6.1.4",
+    "ngx-stripe": "^7.2.0",
     "ngx-toastr": "^9.1.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

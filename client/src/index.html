@@ -17,7 +17,12 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?
 family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-<!-- Include the above in your HEAD tag -->
+<!-- Stripe -->
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+  var stripe = Stripe('pk_test_kt15YEvJnBVowPgdqcViDXMb');
+  var elements = stripe.elements();
+</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
