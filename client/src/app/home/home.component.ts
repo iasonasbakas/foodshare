@@ -8,6 +8,10 @@ import { UsersCounter } from '../users-counter';
 import { DonationsCounter } from '../donations-counter';
 import { ContentBox } from '../content-box';
 
+import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
+import { User } from '../user';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +21,8 @@ import { ContentBox } from '../content-box';
 export class HomeComponent implements OnInit {
 
     windowScrolled: boolean;
-    constructor(@Inject(DOCUMENT) private document: Document) { }
+    constructor(@Inject(DOCUMENT) private document: Document, private auth: AuthService,
+               private userService: UserService) { }
 
     @HostListener("window:scroll", [])
     onWindowScroll() {
@@ -39,13 +44,17 @@ export class HomeComponent implements OnInit {
         })();
     }
 
-  	ngOnInit() { }
+    ngOnInit() {
+      if(localStorage.getItem('foodshare-jwt-access-token')){
+        this.auth.isLoggedIn = true;
+      }
+    }
 
-  	@ViewChild('counters') public counters:ElementRef;
+    @ViewChild('counters') public counters:ElementRef;
 
-  	public move():void {
-  		this.counters.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
-	}
+    public move():void {
+      this.counters.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
+  }
 
 
 

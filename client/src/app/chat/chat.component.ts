@@ -1,6 +1,12 @@
     import { Component, ViewChild } from '@angular/core';
+
+    import { AuthService } from '../auth.service';
+    import { UserService } from '../user.service';
+    import { User } from '../user';
+
     import Chatkit from '@pusher/chatkit-client';
     import axios from 'axios';
+
 
     @Component({
       selector: 'chat-root',
@@ -15,6 +21,14 @@
       currentRoom = <any>{};
       usersWhoAreTyping = [];
       attachment = null;
+
+    constructor(private auth: AuthService, private userService: UserService) { }
+
+      ngOnInit() {
+        if(localStorage.getItem('foodshare-jwt-access-token')){
+        this.auth.isLoggedIn = true;
+        }
+      }
 
       @ViewChild('form') form;
 

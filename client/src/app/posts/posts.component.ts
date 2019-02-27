@@ -23,6 +23,9 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.getPosts();
     this.getUser();
+    if(localStorage.getItem('foodshare-jwt-access-token')){
+      this.auth.isLoggedIn = true;
+    }
   }
 
   getPosts(): void {

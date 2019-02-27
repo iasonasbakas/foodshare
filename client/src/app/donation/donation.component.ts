@@ -3,6 +3,9 @@ import { Component, OnInit  } from '@angular/core';
 import { Donation } from '../donation';
 import { DonationService } from '../donation.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 import {
   AfterViewInit,
@@ -30,7 +33,14 @@ export class DonationComponent implements AfterViewInit, OnDestroy {
   cardHandler = this.onChange.bind(this);
   error: string;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef, private auth: AuthService,
+               private userService: UserService) {}
+
+  ngOnInit() {
+    if(localStorage.getItem('foodshare-jwt-access-token')){
+      this.auth.isLoggedIn = true;
+    }
+  }
 
   ngAfterViewInit() {
 

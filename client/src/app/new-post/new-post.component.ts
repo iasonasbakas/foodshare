@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Post } from '../post';
 import { PostService } from '../post.service';
-
 import { AuthService } from '../auth.service';
-
-class ImageSnippet {
-  constructor(public src: string, public file: File) {}
-}
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-new-post',
@@ -18,13 +16,27 @@ export class NewPostComponent implements OnInit {
 
   posts : Post[];
   post: Post;
-  selectedFile: ImageSnippet;
+  selectedFile: File;
 
-  constructor(private postService: PostService, private auth: AuthService) { }
+  constructor(private postService: PostService, private auth: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
     const userId = this.auth.getUserId();
     this.post = this.newPost(userId);
+    if(localStorage.getItem('foodshare-jwt-access-token')){
+      this.auth.isLoggedIn = true;
+    }
+  }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0]
+  }
+
+  onUpload() {
+    this.http.post('http://localhost:4200/api/media/', this.selectedFile)
+    .subscribe(res => {
+      console.log(res);
+    });
   }
 
   newPost(userId: number): Post {
@@ -35,7 +47,9 @@ export class NewPostComponent implements OnInit {
     post.location = '';
     post.upload_date = new Date();
     post.expiration_date = '';
-    post.image = '';
+    post.image = null;
+    post.avatar = null;
+    post.info = '';
     return post;
   }
 

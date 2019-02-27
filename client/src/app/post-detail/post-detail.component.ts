@@ -2,9 +2,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { PostService }  from '../post.service';
+import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
+import { User } from '../user';
+import { Post } from '../post';
 
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../post';
 
 @Component({
   selector: 'app-post-detail',
@@ -19,11 +22,15 @@ export class PostDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private location: Location
+    private location: Location,
+    private auth: AuthService
   ) { }
 
   ngOnInit(): void {
     this.getPost();
+    if(localStorage.getItem('foodshare-jwt-access-token')){
+      this.auth.isLoggedIn = true;
+    }
   }
 
   getPost(): void {
