@@ -25,7 +25,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
-    this.getUser()
+    this.getUser();
+    if(localStorage.getItem('foodshare-jwt-access-token')){
+        this.auth.isLoggedIn = true;
+    }
   }
 
   getPosts(): void {
