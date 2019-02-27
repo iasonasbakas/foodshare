@@ -37,7 +37,9 @@ and can be found [here](http://foodshare.gr/).
 
 # Installation
 
+
 ### *Linux Environment (Server Side)*
+
 
 > First clone the repository to your local machine
 
@@ -139,6 +141,7 @@ python manage.py runserver
 
 ### *Linux Environment (Client Side)*
 
+
 > Navigate to client directory
 
 ```
@@ -166,6 +169,7 @@ ng serve
 
 
 ### *Linux Environment (Client Chat API)*
+
 
 > Navigate to client directory
 
