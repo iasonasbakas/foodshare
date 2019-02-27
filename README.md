@@ -165,6 +165,20 @@ ng serve
 ```
 
 
+### *Linux Environment (Client Chat API)*
+
+> Navigate to client directory
+
+```
+cd foodshare-assignment/client
+```
+
+> Run Client's Server
+
+```
+node server.js
+```
+
 ##### Postscript:
 ###### *This repository was created for educational purposes.*
 ###### *We are very thankful to Okeanos that provides us with all the hosting services.*
