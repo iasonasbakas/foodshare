@@ -31,6 +31,9 @@ Currently we are building our own startup with the aid of the Athens Center of E
 ### *Hosting Service*
 
 Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) which is GRNET's cloud service for the Greek Research and Academic Community.
+
+### *Platform Development Links*
+
 A link redirecting to the development website can be found [here](https://snf-862057.vm.okeanos.grnet.gr). The production site is currently under contruction 
 and can be found [here](http://foodshare.gr/).
 
