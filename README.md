@@ -37,6 +37,11 @@ Our project is currently hosted under [Okeanos](https://okeanos.grnet.gr/home/) 
 A link redirecting to the development website can be found [here](https://snf-862057.vm.okeanos.grnet.gr). The production site is currently under contruction 
 and can be found [here](http://foodshare.gr/).
 
+### *Testing Credentials*
+
+* Username: gkodosis
+* Password: 12345678
+
 
 # Installation
 
