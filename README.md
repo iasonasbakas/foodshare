@@ -166,6 +166,7 @@ npm install
 
 ```
 npm install -g @angular/cli
+npm install @angular-devkit/build-angular
 ng config -g cli.warnings.versionMismatch false
 ```
 
