@@ -3,7 +3,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'djbr',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'OPTIONS': {
             'isolation_level': 'read committed'

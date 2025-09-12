@@ -1,9 +1,9 @@
 DATABASES = {	
     'default': {	
         'ENGINE': 'django.db.backends.mysql',	
-        'NAME': 'djbr',	
-        'USER': 'root',	
-        'PASSWORD': 'password',	
+        'NAME': 'foodshare',	
+        'USER': 'foodshare_user',	
+        'PASSWORD': 'strongpassword',	
         'HOST': '127.0.0.1',	
         'OPTIONS': {	
             'isolation_level': 'read committed'	
